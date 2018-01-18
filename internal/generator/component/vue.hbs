@@ -1,0 +1,30 @@
+<script>
+export default {
+  $name: '{{ name }}.vue',
+  props: {},
+  data: () => ({
+  }),
+  computed: {
+  },
+  methods: {
+  },
+  mounted() {
+  },
+  beforeDestroy() {
+  },
+  components: {
+  },
+};
+</script>
+
+<template lang="pug">
+.{{ dashCase name }}
+  h1 {{ dashCase name }}
+</template>
+
+
+<style lang="stylus">
+  @require '~css/index'
+  .{{ dashCase name }}
+    // display: none
+</style>

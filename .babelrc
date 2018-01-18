@@ -1,0 +1,17 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions", "safari >= 7"]
+      }
+    }],
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-pug-html",
+    "transform-decorators-legacy",
+    "jsx-v-model",
+    "jsx-vue-functional",
+    "transform-vue-jsx"
+  ]
+}
