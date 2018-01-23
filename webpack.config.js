@@ -6,6 +6,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const DEV_MODE = process.env.NODE_ENV === 'development';
 
@@ -21,6 +22,11 @@ module.exports = {
     filename: 'asset/js/[name].js',
     chunkFilename: 'asset/js/[name].js',
     publicPath: '',
+  },
+  resolveLoader: {
+    alias: {
+      'docs-loader': require.resolve('./internal/custom-loader/docs-loader.js'),
+    },
   },
   resolve: {
     modules: [
@@ -45,6 +51,9 @@ module.exports = {
             preserveWhitespace: false,
             extractCSS: !DEV_MODE,
             stylus: 'stylus-loader?paths=src/css/',
+            loaders: {
+              docs: 'docs-loader',
+            },
           },
         },
       },
@@ -97,7 +106,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
-    // new VueExtractTextURLPlugin({ disable: DEV_MODE }),
     ...DEV_MODE
       ? [
         new webpack.NamedModulesPlugin(),

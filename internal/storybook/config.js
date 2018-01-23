@@ -1,12 +1,7 @@
 import { configure } from '@storybook/vue';
 import Vue from 'vue';
 import Vuex from 'vuex';
-import globalComponent from '../../src/js/util/globalComponent';
 
-import './FakeComponent';
-
-
-globalComponent.install(Vue);
 
 // Register custom components.
 Vue.use(Vuex);

@@ -1,8 +1,8 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 
-const Main = () => import(/* webpackChunkName: "Main" */'@/components/Main');
-const About = () => import(/* webpackChunkName: "About" */'@/components/About');
+const Main = () => import(/* webpackChunkName: "Main" */'@/component/Main');
+const About = () => import(/* webpackChunkName: "About" */'@/component/About');
 
 Vue.use(VueRouter);
 

@@ -1,5 +1,12 @@
+<docs src="./README.md">
+</docs>
+
+
+
 <script>
 import Vue from 'vue';
+
+// ```
 
 // not work!, 同一個 .vue 檔不能出現二個 template
 const ChildComponent = Vue.extend({
@@ -39,10 +46,17 @@ const StandardVueFunctional = {
 };
 
 export default {
+  data() {
+    return {
+      docs2: 'abcyx',
+    };
+  },
   methods: {
     clickHandler(id) {
       console.log(id);
     },
+  },
+  mounted() {
   },
   components: {
     ChildComponent,
@@ -61,6 +75,7 @@ export default {
 
 <template lang="pug">
   .about-root
+    div(v-html="docs")
     JSXStyleComponent
     JSXVueFunctional(name="milkmidi" @click="clickHandler(1)")
     StandardVueFunctional(name="milkmidi so fat" @click="clickHandler(2)")
