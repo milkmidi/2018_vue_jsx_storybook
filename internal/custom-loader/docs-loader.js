@@ -1,16 +1,12 @@
-/* eslint-disable */
+/* eslint func-names:0 */
 const marked = require('marked');
+
 marked.setOptions({
-  highlight(code, lang) {
+  highlight(code) {
     return require('highlight.js').highlightAuto(code).value;
   },
 });
-module.exports = function (source, map) {
-  const r = marked(source).replace('<code class="lang-js">','<code class="lang-js hljs">');
-  this.callback(
-    null,
-    `module.exports = function(Component) {Component.options.__docs = ${JSON.stringify(r)}}`,
-    map
-  );
+module.exports = function (source) {
+  return marked(source).replace(/<code class="lang-js">/g, '<code class="lang-js hljs">');
 };
 

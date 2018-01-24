@@ -25,13 +25,9 @@ nav
 
 <style lang="stylus" scoped>
 nav
-  padding 20px 0
+  padding 10px 0
   text-align center
   background-color #f3f3f3
-  position absolute
-  top 0
-  left 0
-  display none
   a
     font-size 40px
     padding 20px

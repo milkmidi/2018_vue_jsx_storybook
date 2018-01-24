@@ -1,6 +1,3 @@
-<docs src="./README.md">
-</docs>
-
 
 
 <script>
@@ -49,6 +46,7 @@ export default {
   data() {
     return {
       docs2: 'abcyx',
+      name: 'milkmidi',
     };
   },
   methods: {
@@ -76,6 +74,7 @@ export default {
 <template lang="pug">
   .about-root
     div(v-html="docs")
+    input(v-model="name")
     JSXStyleComponent
     JSXVueFunctional(name="milkmidi" @click="clickHandler(1)")
     StandardVueFunctional(name="milkmidi so fat" @click="clickHandler(2)")

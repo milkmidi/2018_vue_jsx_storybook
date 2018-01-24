@@ -64,6 +64,15 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
+        test: /\.md$/,
+        use: [
+          'raw-loader',
+          'docs-loader',
+        ],
+        include: path.resolve('src/js'),
+        exclude: /node_modules/,
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
         use: {
           loader: 'url-loader',
@@ -115,15 +124,19 @@ module.exports = {
         new CleanWebpackPlugin(['dist'], {
           root: __dirname,
         }),
-        new webpack.optimize.UglifyJsPlugin({
-          sourceMap: false,
-          compress: {
-            warnings: false,
-          },
-          output: {
-            comments: false,
-          },
-        }),
+        ...process.env.BEAUTIFY
+          ? []
+          : [
+            new webpack.optimize.UglifyJsPlugin({
+              sourceMap: false,
+              compress: {
+                warnings: false,
+              },
+              output: {
+                comments: false,
+              },
+            }),
+          ],
       ],
   ],
   devServer: {

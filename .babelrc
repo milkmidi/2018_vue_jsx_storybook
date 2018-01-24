@@ -1,15 +1,19 @@
 {
   "presets": [
     ["env", {
+      "modules": false,
+      "loose": true,
       "targets": {
-        "browsers": ["last 2 versions", "safari >= 7"]
+        "browsers": [
+          "> 5%",
+          "last 2 versions", 
+          "not ie <= 10"
+        ]
       }
     }],
     "stage-0"
   ],
   "plugins": [
-    "transform-pug-html",
-    "transform-decorators-legacy",
     "jsx-v-model",
     "jsx-vue-functional",
     "transform-vue-jsx"
