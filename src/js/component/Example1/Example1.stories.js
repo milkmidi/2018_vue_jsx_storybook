@@ -10,12 +10,12 @@ import Example1 from './';
 const Example1Root = Styled.div`
 `;
 
-Vue.component('Example1', Example1);
-Vue.component('Example1Root', Example1Root);
+// Vue.component('Example1', Example1);
+// Vue.component('Example1Root', Example1Root);
 
 storiesOf('Example1', module)
   .addDecorator(Centered)
-  .add('Action', () => ({
+  .add('Example1', () => ({
     methods: {
       log() {
         action('Example1')();
@@ -23,9 +23,7 @@ storiesOf('Example1', module)
     },
     render() {
       return (
-        <Example1Root>
           <Example1 />
-        </Example1Root>
       );
     },
   }));

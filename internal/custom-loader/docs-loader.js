@@ -7,6 +7,7 @@ marked.setOptions({
   },
 });
 module.exports = function (source) {
+  console.log(source);
   return marked(source).replace(/<code class="lang-js">/g, '<code class="lang-js hljs">');
 };
 

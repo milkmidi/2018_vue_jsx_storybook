@@ -12,6 +12,8 @@
     "storybook": "start-storybook -p 9001 -c ./internal/storybook"
   },
   "devDependencies": {
+    "@storybook/addon-centered": "^3.3.10",
+    "@storybook/addon-viewport": "^3.3.10",
     "@storybook/vue": "^3.3.9",
     "axios": "^0.17.1",
     "babel-cli": "^6.26.0",
@@ -61,10 +63,12 @@
     "vue-loader": "^13.5.0",
     "vue-router": "^3.0.1",
     "vue-style-loader": "^3.0.3",
+    "vue-styled-components": "^1.2.1",
     "vue-template-compiler": "^2.5.13",
     "vuex": "^3.0.1",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.0"
+    "webpack-dev-server": "^2.11.0",
+    "webpack-merge": "^4.1.1"
   },
   "dependencies": {
     "highlight.js": "^9.12.0",
