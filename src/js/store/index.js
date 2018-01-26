@@ -1,44 +1,32 @@
 // @flow
 import Vuex from 'vuex';
 import Vue from 'vue';
-
+import keyhandlerPlugin from './keyhandlerPlugin';
+import { routes } from '../router';
 
 Vue.use(Vuex);
 
 const defaultState = {
-  loading: true,
+  index: 0,
 };
 
-// vue 裡用 this.$store.commit('loading' , true)
 const mutations = {
-  loading(state, value) {
-    state.loading = value;
+  updateIndex(state, value) {
+    state.index = Math.min(Math.max(0, state.index + value), routes.length - 1);
   },
 };
 
-/*
-  vue 裡用 this.$store.dispatch('loading' , true)
-  methods(){
-    ...Vuex.mapActions(['loading']),
-  }
-*/
 const actions = {
-  loading({ commit }, value) {
-    commit('loading', value);
-  },
 };
 
-/**
-  computed:{
-    ...Vuex.mapGetters(['loading'])
-  },
-*/
 const getters = {
-  loading: state => state.loading,
+  index: ({ index }) => index,
 };
 export default new Vuex.Store({
+  strict: true,
   state: defaultState,
   getters,
   actions,
   mutations,
+  plugins: [keyhandlerPlugin],
 });

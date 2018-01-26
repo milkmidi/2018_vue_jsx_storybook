@@ -5,17 +5,17 @@ import { action } from '@storybook/addon-actions';
 import Centered from '@storybook/addon-centered';
 import Styled from 'vue-styled-components';
 
-import Example2 from './';
+import Example1 from './';
 
-const Example2Root = Styled.div`
+const Example1Root = Styled.div`
 `;
 
-Vue.component('Example2', Example2);
-Vue.component('Example2Root', Example2Root);
+Vue.component('Example1', Example1);
+Vue.component('Example1Root', Example1Root);
 
-storiesOf('Example2', module)
+storiesOf('Example1', module)
   // .addDecorator(Centered)
-  .add('Example2', () => ({
+  .add('Example1', () => ({
     methods: {
       log() {
         action('Example1')();
@@ -23,9 +23,9 @@ storiesOf('Example2', module)
     },
     render() {
       return (
-        <Example2Root>
-          <Example2 />
-        </Example2Root>
+        <Example1Root>
+          <Example1 />
+        </Example1Root>
       );
     },
   }));

@@ -6,7 +6,7 @@ module.exports = {
   },
   env: {
     browser: true,
-    jest: true
+    jest: true,
   },
   extends: 'airbnb-base',
   globals: {
@@ -16,7 +16,7 @@ module.exports = {
     pug: false,
     gtag: false,
     TweenMax: false,
-    TimelineMax: false
+    TimelineMax: false,
   },
   plugins: [
     'html',
@@ -30,6 +30,8 @@ module.exports = {
     },
   },
   rules: {
+    'import/no-webpack-loader-syntax': 0,
+    'no-return-assign': 0,
     'vue-libs/jsx-uses-vars': 2,
     'prefer-promise-reject-errors': 0,
     'object-curly-newline': 0,
@@ -39,13 +41,13 @@ module.exports = {
     'no-extraneous-dependencies': 0,
     'import/no-unresolved': 0,
     'import/extensions': ['error', 'always', {
-      js: 'never'
+      js: 'never',
     }],
     'no-param-reassign': ['error', {
-      props: false
+      props: false,
     }],
     'no-plusplus': ['error', {
-      allowForLoopAfterthoughts: true
+      allowForLoopAfterthoughts: true,
     }],
   },
 };

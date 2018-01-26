@@ -12,10 +12,19 @@ export default {
       <Template
         standard={this.standard}
         jsx={this.jsx}>
-        <h1 slot="title">01 List</h1>
+        <div slot="title">
+          <h1>06 Props Spread</h1>
+          <a class="btn btn-link"
+            target="_blank"
+            href="https://github.com/vuejs/babel-plugin-transform-vue-jsx">babel-vue-jsx</a>
+          <a class="btn btn-link"
+            target="_blank"
+            href="https://vuejs.org/v2/guide/render-function.html#Functional-Components">vue functional components</a>
+        </div>
         <StandardVue slot="standard" />
         <JSXComponent slot="jsx" />
       </Template>
     );
   },
 };
+

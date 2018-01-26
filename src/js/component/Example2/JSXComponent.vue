@@ -1,16 +1,16 @@
 <script>
 export default {
-  data() {
-    return {
-      name: 'milkmidi',
-      markdown: require('./JSXComponent.md'),
-    };
+  methods: {
+    clickHandler() {
+      console.log('hi');
+    },
   },
   render() {
     return (
-      <div class="jsx-component">
-        <h2>{this.name}</h2>
-        <div class="markdown" domPropsInnerHTML={this.markdown}></div>
+      <div>
+        <button
+          class="btn btn-primary"
+          onClick={this.clickHandler}>Click</button>
       </div>
     );
   },

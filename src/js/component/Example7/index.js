@@ -12,10 +12,13 @@ export default {
       <Template
         standard={this.standard}
         jsx={this.jsx}>
-        <h1 slot="title">01 List</h1>
+        <div slot="title">
+          <h1>07 scoped</h1>
+        </div>
         <StandardVue slot="standard" />
         <JSXComponent slot="jsx" />
       </Template>
     );
   },
 };
+

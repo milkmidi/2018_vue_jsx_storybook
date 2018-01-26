@@ -1,37 +1,35 @@
-// load the default config generator.
-const genDefaultConfig = require('@storybook/vue/dist/server/config/defaults/webpack.config.js');
-
 const path = require('path');
 const rootWebpackConfig = require('../../webpack.config');
 
-module.exports = (storybookBaseConfig) => {
-  console.log(JSON.stringify(storybookBaseConfig));
-  // const config = genDefaultConfig(baseConfig);
-
-
-  /*  const alias = Object.assign({}, config.resolve.alias, rootWebpackConfig.resolve.alias);
-  config.resolve.alias = alias;
-
+/**
+ *
+ * @param {object} baseConfig
+ * @param {string} configType DEVELOPMENT or PRODUCTION
+ */
+module.exports = (baseConfig, configType) => {
+  const config = baseConfig;
   rootWebpackConfig.resolve.modules.forEach((modulePath) => {
     if (modulePath.indexOf('node_modules') === -1) {
       config.resolve.modules.push(modulePath);
     }
   });
+  config.resolve.alias = Object.assign({}, rootWebpackConfig.resolve.alias);
 
-  config.resolveLoader = rootWebpackConfig.resolveLoader;
-
-  rootWebpackConfig.module.rules.forEach((rule) => {
-    config.module.rules.push(rule);
-  }); */
-
-
-  storybookBaseConfig.resolveLoader = {
+  config.resolveLoader = {
     alias: {
       'docs-loader': require.resolve('../custom-loader/docs-loader.js'),
     },
   };
 
-  storybookBaseConfig.module.rules.push({
+  const { rules } = config.module;
+  // exclude storybook default webpack markdown-loader
+  rules.forEach((rule) => {
+    if (rule.test.toString().indexOf('.md') !== -1) {
+      rule.exclude = [path.join(process.cwd(), 'src')];
+    }
+  });
+
+  rules.push({
     test: /\.md$/,
     use: [
       'raw-loader',
@@ -42,5 +40,5 @@ module.exports = (storybookBaseConfig) => {
   });
 
 
-  return storybookBaseConfig;
+  return config;
 };

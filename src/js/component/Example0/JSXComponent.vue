@@ -1,16 +1,16 @@
-```js
+<script>
 export default {
   data() {
     return {
-      name: 'milkmidi',
+      name: 'JSX Style',
     };
   },
   render() {
     return (
-      <div class="jsx-component">
+      <div>
         <h2>{this.name}</h2>
       </div>
     );
   },
 };
-```
+</script>

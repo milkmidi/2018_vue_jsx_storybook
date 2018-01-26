@@ -1,18 +1,16 @@
-
 <script>
 export default {
   data() {
     return {
-      name: 'milkmidi',
-      markdown: require('./StandardVue.md'),
+      list: [0, 1, 2, 3],
     };
   },
 };
 </script>
-
 <template>
-  <div class="standard-vue">
-    <h2>{{name}}</h2>
-    <div class="markdown" v-html="markdown" />
+  <div>
+    <div class="box" 
+      v-for="v in list" 
+      :key="v.toString()">{{v}}</div>
   </div>
 </template>

@@ -12,10 +12,17 @@ export default {
       <Template
         standard={this.standard}
         jsx={this.jsx}>
-        <h1 slot="title">01 List</h1>
+        <div slot="title">
+          <h1>08 v-model</h1>
+          <a
+            class="btn btn-link"
+            href="https://github.com/nickmessing/babel-plugin-jsx-v-model"
+            target="_blank">babel-plugin-jsx-v-model</a>
+        </div>
         <StandardVue slot="standard" />
         <JSXComponent slot="jsx" />
       </Template>
     );
   },
 };
+

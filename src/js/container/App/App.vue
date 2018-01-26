@@ -1,42 +1,30 @@
 <script>
-import Navigation from '@/component/Navigation';
+// import Navigation from '@/component/Navigation';
 
-const routes = [
-  '/',
-  'example1',
-  'example2',
-];
+import Vuex from 'vuex';
+import { findMathPathIndex } from '../../router';
 
 export default {
   data() {
     return {
-      index: 0,
     };
   },
   methods: {
-    pushRoute(val) {
-      this.index = Math.min(Math.max(0, this.index + val), routes.length - 1);
-      this.$router.push(routes[this.index]);
-    },
+    ...Vuex.mapMutations(['updateIndex']),
   },
   mounted() {
-    window.addEventListener('keydown', ({ keyCode }) => {
-      if (keyCode === 37 || keyCode === 38) {
-        this.pushRoute(-1);
-      } else if (keyCode === 39 || keyCode === 40) {
-        this.pushRoute(1);
-      }
-    });
+    const index = findMathPathIndex(this.$route.path);
+    this.updateIndex(index);
   },
   components: {
-    Navigation,
+    // Navigation,
   },
 };
 </script>
 
 <template lang="pug">
   #app
-    Navigation
+    //- Navigation
     main
       transition(name="fade" mode="out-in")
         router-view.view
@@ -44,8 +32,6 @@ export default {
 
 
 <style lang="stylus" src="css/common.styl">
- 
-
 </style>
 
 

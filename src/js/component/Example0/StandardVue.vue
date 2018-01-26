@@ -1,17 +1,14 @@
-```js
 <script>
 export default {
   data() {
     return {
-      name: 'milkmidi',
+      name: 'Standard Template',
     };
   },
 };
 </script>
-
 <template>
-  <div class="standard-vue">
+  <div>
     <h2>{{name}}</h2>
   </div>
 </template>
-```

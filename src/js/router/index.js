@@ -1,23 +1,21 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue';
-
-import Example1 from '@/component/Example1';
-import Main from '@/component/Main';
-import About from '@/component/About';
-
-const JSXContainer = () => import(/* webpackChunkName: "JSXContainer" */'@/container/JSXContainer');
+import findIndex from 'lodash/findIndex';
+import range from 'lodash/range';
 
 Vue.use(VueRouter);
 
+
+const req = require.context('../component/', true, /index.js$/);
 export const routes = [
-  { path: '/', component: Main },
-  { path: '/about', component: About },
-  { path: '/example1', component: Example1 },
-  { path: '/jsx', component: JSXContainer },
+  { path: '/', component: require('@/component/Main').default },
+  ...range(9).map(i => ({ path: `/example${i}`, component: req(`./Example${i}/index.js`).default })),
 ];
 
+
+export const findMathPathIndex = path => findIndex(routes, p => p.path === path);
+
 const router = new VueRouter({
-  // mode: 'history',
   scrollBehavior: () => ({ y: 0 }),
   routes,
 });

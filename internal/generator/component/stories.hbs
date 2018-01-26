@@ -2,28 +2,20 @@ import Vue from 'vue';
 
 import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
-// import { linkTo } from '@storybook/addon-links';
-// import { withNotes } from '@storybook/addon-notes';
 import Centered from '@storybook/addon-centered';
 import Styled from 'vue-styled-components';
 
-import globalComponent from '../../utils/vue-global-plugins';
 import {{ properCase name }} from './';
 
 const {{ properCase name }}Root = Styled.div`
 `;
 
-globalComponent.install(Vue);
 Vue.component('{{ properCase name }}', {{ properCase name }});
 Vue.component('{{ properCase name }}Root', {{ properCase name }}Root);
 
 storiesOf('{{ properCase name }}', module)
-  .addDecorator(Centered)
-  .add('basic', () => ({
-    template: pug`{{ properCase name }}
-      {{ properCase name }}`,
-  }))
-  .add('Action', () => ({
+  {{!-- .addDecorator(Centered) --}}
+  .add('{{ properCase name }}', () => ({
     methods: {
       log() {
         action('{{ properCase name }}')();

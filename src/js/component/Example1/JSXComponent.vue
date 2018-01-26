@@ -2,15 +2,16 @@
 export default {
   data() {
     return {
-      name: 'milkmidi',
-      markdown: require('./JSXComponent.md'),
+      list: [0, 1, 2, 3],
     };
   },
   render() {
     return (
-      <div class="jsx-component">
-        <h2>{this.name}</h2>
-        <div class="markdown" domPropsInnerHTML={this.markdown}></div>
+      <div>
+        {
+          this.list.map(v =>
+            <div class="box" key={`${v}`}>{v}</div>)
+        }
       </div>
     );
   },

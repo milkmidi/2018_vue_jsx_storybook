@@ -1,18 +1,16 @@
-
 <script>
 export default {
-  data() {
-    return {
-      name: 'milkmidi',
-      markdown: require('./StandardVue.md'),
-    };
+  methods: {
+    clickHandler() {
+      console.log('hi');
+    },
   },
 };
 </script>
-
 <template>
-  <div class="standard-vue">
-    <h2>{{name}}</h2>
-    <div class="markdown" v-html="markdown" />
+  <div>
+    <button
+      class="btn btn-primary" 
+      @click="clickHandler">Click</button>
   </div>
 </template>

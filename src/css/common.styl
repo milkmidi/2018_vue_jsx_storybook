@@ -14,7 +14,7 @@ html, body, #app, .view
 .standard-vue
 .jsx-component
   position relative
-  padding 30px
+  padding 10px
   border 2px solid black
   &:before
     display block
@@ -39,4 +39,19 @@ html, body, #app, .view
     font-size 80px
 
 pre
-  font-size 120% !important
+  font-size 110% !important
+
+.box
+  width 40px
+  font-size 20px
+  height @width
+  border 1px solid black
+  border-radius 5px
+  text-align center
+  line-height @width
+  margin 4px 0
+  &.lg
+    width 100px
+    height @width
+    line-height @width
+    font-size 36px

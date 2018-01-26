@@ -12,7 +12,7 @@ export default {
       <Template
         standard={this.standard}
         jsx={this.jsx}>
-        <h1 slot="title">01 List</h1>
+        <h1 slot="title">03 v-if</h1>
         <StandardVue slot="standard" />
         <JSXComponent slot="jsx" />
       </Template>

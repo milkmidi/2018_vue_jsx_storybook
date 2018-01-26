@@ -1,4 +1,5 @@
-/* eslint func-names:0 */
+/* eslint func-names:0, prefer-template:0 */
+// .vue to markdown
 const marked = require('marked');
 
 marked.setOptions({
@@ -7,7 +8,9 @@ marked.setOptions({
   },
 });
 module.exports = function (source) {
-  console.log(source);
-  return marked(source).replace(/<code class="lang-js">/g, '<code class="lang-js hljs">');
+  return marked('```js\n' + source + '\n```').replace(/<code class="lang-js">/g, '<code class="lang-js hljs">');
 };
 
+/* module.exports = function (source) {
+  return marked(source).replace(/<code class="lang-js">/g, '<code class="lang-js hljs">');
+}; */

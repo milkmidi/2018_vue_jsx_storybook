@@ -12,7 +12,12 @@ export default {
       <Template
         standard={this.standard}
         jsx={this.jsx}>
-        <h1 slot="title">01 List</h1>
+        <div slot="title">
+          <h1>05 functional</h1>
+          <a class="btn btn-link"
+            target="_blank"
+            href="https://vuejs.org/v2/guide/render-function.html#Functional-Components">link</a>
+        </div>
         <StandardVue slot="standard" />
         <JSXComponent slot="jsx" />
       </Template>
