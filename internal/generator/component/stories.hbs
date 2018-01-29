@@ -3,15 +3,11 @@ import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
 import Centered from '@storybook/addon-centered';
-import Styled from 'vue-styled-components';
 
 import {{ properCase name }} from './';
 
-const {{ properCase name }}Root = Styled.div`
-`;
 
 Vue.component('{{ properCase name }}', {{ properCase name }});
-Vue.component('{{ properCase name }}Root', {{ properCase name }}Root);
 
 storiesOf('{{ properCase name }}', module)
   {{!-- .addDecorator(Centered) --}}
@@ -23,9 +19,9 @@ storiesOf('{{ properCase name }}', module)
     },
     render() {
       return (
-        <{{ properCase name }}Root>
+        <div>
           <{{ properCase name }} />
-        </{{ properCase name }}Root>
+        </div>
       );
     }
   }));

@@ -12,7 +12,8 @@
     "storybook": "start-storybook -p 9001 -c ./internal/storybook"
   },
   "devDependencies": {
-    "@storybook/addon-centered": "^3.3.10",
+    "@storybook/addon-centered": "^3.3.11",
+    "@storybook/addon-options": "^3.3.11",
     "@storybook/addon-viewport": "^3.3.10",
     "@storybook/vue": "^3.3.9",
     "axios": "^0.17.1",
@@ -56,6 +57,8 @@
     "pug-loader": "^2.3.0",
     "raw-loader": "^0.5.1",
     "script-ext-html-webpack-plugin": "^1.8.8",
+    "storybook-addon-jest": "0.0.1",
+    "storybook-readme": "^3.2.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "url-loader": "^0.6.2",
