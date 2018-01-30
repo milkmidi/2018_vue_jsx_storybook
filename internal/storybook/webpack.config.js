@@ -13,7 +13,7 @@ module.exports = (baseConfig, configType) => {
       config.resolve.modules.push(modulePath);
     }
   });
-  config.resolve.alias = Object.assign({}, rootWebpackConfig.resolve.alias);
+  Object.assign(config.resolve.alias, rootWebpackConfig.resolve.alias);
 
   config.resolveLoader = {
     alias: {

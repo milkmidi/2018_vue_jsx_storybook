@@ -1,24 +1,24 @@
 <script>
 
 const ChildComponent = {
+  props: ['name'],
   render() {
     return (
       <div class="child-jsx">
-        <h2>I'm Child Component</h2>
+        <h2>Child Component {this.name}</h2>
       </div>
     );
   },
 };
 
 export default {
-  data() {
-    return {
-    };
+  components: {
+    // 可以不用寫
   },
   render() {
     return (
       <div>
-        <ChildComponent />
+        <ChildComponent name="milkmidi" />
       </div>
     );
   },

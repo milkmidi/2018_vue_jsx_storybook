@@ -38,6 +38,7 @@ module.exports = {
       '~': path.resolve('src'),
       '@': path.resolve('src/js'),
       img: path.resolve('src/asset/img'),
+      vue: 'vue/dist/vue.js',
     },
     extensions: ['.js'],
   },

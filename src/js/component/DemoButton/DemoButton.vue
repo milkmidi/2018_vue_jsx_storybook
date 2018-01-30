@@ -30,5 +30,5 @@ export default DemoButton;
     color white
     background-color #dddddd
   &.rounded
-    border-radius 20px
+    border-radius 20px !important
 </style>

@@ -12,10 +12,13 @@ export default {
       <Template
         standard={this.standard}
         jsx={this.jsx}>
-        <h1 slot="title">04 Inner Component</h1>
+        <div slot="title">
+          <h1>09 Conditional Rendering</h1>
+        </div>
         <StandardVue slot="standard" />
         <JSXComponent slot="jsx" />
       </Template>
     );
   },
 };
+

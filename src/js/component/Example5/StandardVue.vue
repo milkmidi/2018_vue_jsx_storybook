@@ -1,4 +1,4 @@
-<!--
+<!-- ChildComponent.vue
 <template lang="pug" functional>
   .child-component
     h2(@click="listeners.pipi") {{props.name}}
@@ -20,6 +20,8 @@ export default {
 </script>
 <template>
   <div>
-    <ChildComponent name="milkmidi" @pipi="click"/>
+    <ChildComponent
+      name="milkmidi"
+      @pipi="click" />
   </div>
 </template>

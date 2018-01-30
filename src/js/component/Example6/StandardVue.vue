@@ -1,14 +1,10 @@
 <!-- ChildComponent.vue
-<script>
-export default {
-  props: ['data'],
-};
-</script>
-<template lang="pug">
+<template lang="pug" functional>
   .child-component
-    h3 {{data.name}} - {{data.age}}
+    h3 {{props.data.name}} - {{props.data.age}}
 </template>
 -->
+
 <script>
 import ChildComponent from './ChildComponent.vue';
 

@@ -1,7 +1,8 @@
-/* eslint func-names:0, prefer-template:0 */
+/* eslint func-names:0, prefer-template:0, no-useless-escape:0 */
 // .vue to markdown
 const marked = require('marked');
 
+// const removeClassTag = /class="[a-zA-Z0-9:;\.\s\(\)\-\,]*"/g;
 marked.setOptions({
   highlight(code) {
     return require('highlight.js').highlightAuto(code).value;

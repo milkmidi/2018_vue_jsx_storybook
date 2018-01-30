@@ -1,14 +1,11 @@
 <script>
-// import Navigation from '@/component/Navigation';
 
 import Vuex from 'vuex';
-import { findMathPathIndex } from '../../router';
+import { findMathPathIndex } from '@/router';
+import PageDisplayContainer from '@/container/PageDisplayContainer';
+
 
 export default {
-  data() {
-    return {
-    };
-  },
   methods: {
     ...Vuex.mapMutations(['updateIndex']),
   },
@@ -16,22 +13,19 @@ export default {
     const index = findMathPathIndex(this.$route.path);
     this.updateIndex(index);
   },
-  components: {
-    // Navigation,
+  render() {
+    return (
+      <div id="app">
+        <PageDisplayContainer />
+        <main>
+          <router-view class="view" />
+        </main>
+      </div>
+    );
   },
 };
 </script>
 
-<template lang="pug">
-  #app
-    //- Navigation
-    main
-      transition(name="fade" mode="out-in")
-        router-view.view
-</template>
 
 
-<style lang="stylus" src="css/common.styl">
-</style>
-
-
+<style lang="stylus" src="css/common.styl" />

@@ -8,6 +8,7 @@ Vue.use(Vuex);
 
 const defaultState = {
   index: 0,
+  totalPages: routes.length,
 };
 
 const mutations = {
@@ -21,6 +22,7 @@ const actions = {
 
 const getters = {
   index: ({ index }) => index,
+  totalPages: ({ totalPages }) => totalPages,
 };
 export default new Vuex.Store({
   strict: true,

@@ -1,17 +1,11 @@
 import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
-import Styled from 'vue-styled-components';
+import Centered from '@storybook/addon-centered';
 import DemoButton from './';
 
-const Center = Styled.div`
-  align-items: center;
-  justify-content: center;
-  display: flex;  
-  width: 100%;
-  height: 100vh;
-`;
 
 storiesOf('DemoButton', module)
+  .addDecorator(Centered)
   .add('DemoButton', () => ({
     data() {
       return {
@@ -26,9 +20,7 @@ storiesOf('DemoButton', module)
     },
     render() {
       return (
-        <Center>
-          <DemoButton rounded={this.isRounded} onClick={this.clickHandler}>{this.label}</DemoButton>
-        </Center>
+        <DemoButton rounded={this.isRounded} onClick={this.clickHandler}>{this.label}</DemoButton>
       );
     },
   }))
@@ -46,9 +38,7 @@ storiesOf('DemoButton', module)
     },
     render() {
       return (
-        <Center>
-          <DemoButton rounded={this.isRounded} onClick={this.clickHandler}>{this.label}</DemoButton>
-        </Center>
+        <DemoButton rounded={this.isRounded} onClick={this.clickHandler}>{this.label}</DemoButton>
       );
     },
   }));

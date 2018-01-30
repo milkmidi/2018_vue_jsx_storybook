@@ -1,41 +1,121 @@
-<!--
-<template lang="pug" functional>
-.container-fluid
-  .kv-text.text-center
-    slot(name="title")
-  .row
-    .col-6
-      .standard-vue
-        slot(name="standard")
-        .markdown(v-html="props.standard")
-    .col-6
-      .jsx-component
-        slot(name="jsx")
-        .markdown(v-html="props.jsx")
-</template>
--->
-
 <script>
-const Template = ({ props, slots }) => (
-  <div class="container-fluid">
-    <div class="kv-text text-center">
-    { slots().title }
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <div class="standard-vue">
-          {slots().standard}
-          <div class="markdown" domPropsInnerHTML={props.standard}></div>
+
+const IconBTN = ({ props, listeners }) => {
+  const { mode, value, iconName = 'fa-angle-double-up' } = props;
+  if (mode === value) {
+    return null;
+  }
+  return (
+    <div class={`fa fa-lg icon-btn ${iconName}`}
+      onClick={() => listeners.setMode(props.value)} />
+  );
+};
+
+const Template = {
+  props: ['standard', 'jsx'],
+  data() {
+    return {
+      mode: 0,
+    };
+  },
+  methods: {
+    setMode(m) {
+      this.mode = m;
+    },
+  },
+  render() {
+    const { $slots, mode } = this;
+    let leftClass = 'col-6';
+    let rightClass = 'col-6';
+    if (mode === 1) {
+      leftClass = 'col-12';
+      rightClass = 'none';
+    } else if (mode === 2) {
+      leftClass = 'none';
+      rightClass = 'col-12';
+    }
+    return (
+      <div class="container-fluid template">
+        <div class="kv-text text-center">
+        { $slots.title }
+        </div>
+        <div class="row content">
+          <IconBTN
+            iconName="fa-close"
+            value={0}
+            mode={mode}
+            onSetMode={this.setMode} />
+          <div class={leftClass}>
+            <div class="standard-vue">
+              <IconBTN
+                value={1}
+                mode={mode}
+                onSetMode={this.setMode} />
+              {$slots.standard}
+              <div class="markdown"
+                domPropsInnerHTML={this.standard} />
+            </div>
+          </div>
+          <div class={rightClass}>
+            <div class="jsx-component">
+              <IconBTN
+                value={2}
+                mode={mode}
+                onSetMode={this.setMode} />
+              {$slots.jsx}
+              <div class="markdown"
+                domPropsInnerHTML={this.jsx} />
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-6">
-        <div class="jsx-component">
-          {slots().jsx}
-          <div class="markdown" domPropsInnerHTML={props.jsx}></div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
+    );
+  },
+};
 export default Template;
 </script>
+
+<style lang="stylus">
+  .template
+    pre
+      font-size 120% !important
+    .kv-text
+      h1
+        padding 20px 0 10px
+        font-size 4rem
+    .markdown
+      padding-top 20px
+    .content
+      position relative
+    .icon-btn
+      position absolute
+      top 15px
+      right @top
+      font-size 30px
+      cursor pointer
+      &:hover
+        transform scale(1.2)
+    .fa-close
+      z-index 9999
+      right 30px
+    .standard-vue
+    .jsx-component
+      position relative
+      padding 10px
+      border 2px solid black
+      &:before
+        display block
+        top 1px
+        left 2px
+        font-size 24px
+        padding-bottom 20px
+    .standard-vue
+      &:before
+        content 'vue'
+    .jsx-component
+      background-color #ecf0f1
+      &:before
+        content 'jsx'
+    .none
+      display none
+</style>

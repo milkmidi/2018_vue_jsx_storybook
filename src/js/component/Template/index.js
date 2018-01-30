@@ -1,4 +1,2 @@
-import Template from './Template.vue';
-
-export default Template;
+export { default } from './Template.vue';
 
