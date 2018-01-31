@@ -1,17 +1,9 @@
-/* eslint func-names:0, prefer-template:0, no-useless-escape:0 */
-// .vue to markdown
-const marked = require('marked');
+/* eslint func-names:0 */
 
-// const removeClassTag = /class="[a-zA-Z0-9:;\.\s\(\)\-\,]*"/g;
-marked.setOptions({
-  highlight(code) {
-    return require('highlight.js').highlightAuto(code).value;
-  },
-});
+const highlight = require('highlight.js');
+
 module.exports = function (source) {
-  return marked('```js\n' + source + '\n```').replace(/<code class="lang-js">/g, '<code class="lang-js hljs">');
+  const lang = 'html';
+  const { value } = highlight.highlight(lang, source);
+  return `<pre><code class="lang-${lang} hljs">${value}</code></pre>`;
 };
-
-/* module.exports = function (source) {
-  return marked(source).replace(/<code class="lang-js">/g, '<code class="lang-js hljs">');
-}; */

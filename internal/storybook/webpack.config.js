@@ -21,15 +21,15 @@ module.exports = (baseConfig, configType) => {
     },
   };
 
-  const { rules } = config.module;
+  // const { rules } = config.module;
   // exclude storybook default webpack markdown-loader
-  rules.forEach((rule) => {
+  /* rules.forEach((rule) => {
     if (rule.test.toString().indexOf('.md') !== -1) {
       rule.exclude = [path.join(process.cwd(), 'src')];
     }
-  });
+  }); */
 
-  rules.push({
+  /* rules.push({
     test: /\.md$/,
     use: [
       'raw-loader',
@@ -37,7 +37,7 @@ module.exports = (baseConfig, configType) => {
     ],
     include: path.resolve('src/js'),
     exclude: /node_modules/,
-  });
+  }); */
 
 
   return config;

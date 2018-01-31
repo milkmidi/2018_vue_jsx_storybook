@@ -45,7 +45,7 @@ const Template = {
             value={0}
             mode={mode}
             onSetMode={this.setMode} />
-          <div class={leftClass}>
+          <div class={`${leftClass} animate`}>
             <div class="standard-vue">
               <IconBTN
                 value={1}
@@ -56,7 +56,7 @@ const Template = {
                 domPropsInnerHTML={this.standard} />
             </div>
           </div>
-          <div class={rightClass}>
+          <div class={`${rightClass} animate`}>
             <div class="jsx-component">
               <IconBTN
                 value={2}
@@ -75,10 +75,12 @@ const Template = {
 export default Template;
 </script>
 
-<style lang="stylus">
+<style lang="stylus">  
   .template
     pre
       font-size 120% !important
+    .animate
+      transition all 0.3s
     .kv-text
       h1
         padding 20px 0 10px
@@ -117,5 +119,7 @@ export default Template;
       &:before
         content 'jsx'
     .none
-      display none
+      max-width 0
+      visibility hidden
+      overflow hidden
 </style>
