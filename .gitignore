@@ -3,7 +3,6 @@ _doc
 .sass-cache
 doc
 dist
-src/asset/img
 config.rb
 *.zip
 *.psd
