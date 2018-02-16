@@ -13,7 +13,7 @@ export default {
         standard={this.standard}
         jsx={this.jsx}>
         <div slot="title">
-          <h1>09 假的</h1>
+          <h1>10 Conditional Rendering</h1>
         </div>
         <StandardVue slot="standard" />
         <JSXComponent slot="jsx" />

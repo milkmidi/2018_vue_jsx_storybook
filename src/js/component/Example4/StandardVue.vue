@@ -16,7 +16,7 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <section>
     <ChildComponent name="milkmidi"/>
     <!-- 
       預設不支援一個 .vue 檔包多組
@@ -26,5 +26,5 @@ export default {
         vue: 'vue/dist/vue.js'
       }
     }  -->
-  </div>
+  </section>
 </template>

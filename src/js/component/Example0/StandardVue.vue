@@ -8,7 +8,7 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <section>
     <h2>{{name}}</h2>
-  </div>
+  </section>
 </template>

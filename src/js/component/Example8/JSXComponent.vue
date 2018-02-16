@@ -9,7 +9,7 @@ export default {
   },
   render() {
     return (
-      <div>
+      <section>
         <h2>{this.input}</h2>
         <p>{this.checkedNames}</p>
         <input type="text"
@@ -32,7 +32,7 @@ export default {
             Angular
           </label>
         </div>
-      </div>
+      </section>
     );
   },
 };

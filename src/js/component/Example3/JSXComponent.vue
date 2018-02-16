@@ -7,7 +7,7 @@ export default {
   },
   render() {
     return (
-      <div>
+      <section>
         <button class="btn btn-primary"
           onClick={() => this.show = !this.show}>
           Toggle</button>
@@ -21,7 +21,7 @@ export default {
             ? <div class="box lg">No</div>
             : null
         }
-      </div>
+      </section>
     );
   },
 };

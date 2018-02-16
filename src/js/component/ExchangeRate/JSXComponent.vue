@@ -2,13 +2,15 @@
 export default {
   data() {
     return {
-      name: 'JSX Style',
+      money: 100,
     };
   },
   render() {
     return (
       <section>
-        <h2>{this.name}</h2>
+        <p>money:{this.money}</p>
+        <p>us:{this.money * 30}</p>
+        <p>jp:{this.money / 3}</p>
       </section>
     );
   },

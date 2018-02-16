@@ -11,7 +11,7 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <section>
     <h2>{{random(0,999)}}</h2>
-  </div>
+  </section>
 </template>

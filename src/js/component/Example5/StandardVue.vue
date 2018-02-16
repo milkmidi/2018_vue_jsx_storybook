@@ -19,9 +19,9 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <section>
     <ChildComponent
       name="milkmidi"
       @pipi="click" />
-  </div>
+  </section>
 </template>

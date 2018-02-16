@@ -26,7 +26,7 @@ export default {
   },
   render() {
     return (
-      <div>
+      <section>
         {
           this.list.map(o =>
             <ChildComponent
@@ -34,7 +34,7 @@ export default {
               {...{ props: o }}
               />)
         }
-      </div>
+      </section>
     );
   },
 };

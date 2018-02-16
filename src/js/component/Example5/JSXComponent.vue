@@ -26,11 +26,11 @@ export default {
   },
   render() {
     return (
-      <div>
+      <section>
         <ChildComponent
           name="milkmidi"
           onPipi={this.click} />
-      </div>
+      </section>
     );
   },
 };

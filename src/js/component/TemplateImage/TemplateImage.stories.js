@@ -4,21 +4,16 @@ import Centered from '@storybook/addon-centered';
 import TemplateImage from './';
 
 
-import img from '~img/eye.jpg';
-
 storiesOf('TemplateImage', module)
   .addDecorator(Centered)
   .add('basic', () => ({
-    data() {
-      return {
-      };
-    },
-    methods: {
-    },
     render() {
-      return (
-        <TemplateImage img={img} />
-      );
+      return <TemplateImage img={require('img/milkmidi.png')} sub="I'm sub Title!" />;
+    },
+  }))
+  .add('multi line', () => ({
+    render() {
+      return <TemplateImage img={require('img/milkmidi.png')} sub={["I'm sub Title!", '1', '2', '3']} />;
     },
   }));
 

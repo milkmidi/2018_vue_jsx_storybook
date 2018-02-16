@@ -23,10 +23,10 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <section>
     <ChildComponent 
       v-for="o in list"
       :key="o.name"
       :data="o"/>
-  </div>
+  </section>
 </template>

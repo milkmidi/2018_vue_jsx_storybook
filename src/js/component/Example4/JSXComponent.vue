@@ -17,9 +17,9 @@ export default {
   },
   render() {
     return (
-      <div>
+      <section>
         <ChildComponent name="milkmidi" />
-      </div>
+      </section>
     );
   },
 };

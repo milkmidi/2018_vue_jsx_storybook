@@ -8,9 +8,9 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <section>
     <div class="box" 
       v-for="v in list" 
       :key="v.toString()">{{v}}</div>
-  </div>
+  </section>
 </template>

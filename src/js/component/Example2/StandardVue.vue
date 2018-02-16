@@ -8,9 +8,9 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <section>
     <button
       class="btn btn-primary" 
       @click="clickHandler">Click</button>
-  </div>
+  </section>
 </template>

@@ -7,12 +7,12 @@ export default {
   },
   render() {
     return (
-      <div>
+      <section>
         {
           this.list.map(v =>
             <div class="box" key={`${v}`}>{v}</div>)
         }
-      </div>
+      </section>
     );
   },
 };

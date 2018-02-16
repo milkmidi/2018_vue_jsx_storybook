@@ -104,7 +104,7 @@ export default Template;
     .jsx-component
       position relative
       padding 10px
-      border 2px solid black
+      border 1px solid #787878
       &:before
         display block
         top 1px

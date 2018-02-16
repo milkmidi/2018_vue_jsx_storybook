@@ -9,7 +9,7 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <section>
     <h2>{{input}}</h2>
     <p>{{checkedNames}}</p>
     <input type="text" 
@@ -32,6 +32,6 @@ export default {
         Angular
       </label>
     </div>
-  </div>
+  </section>
 </template>
 

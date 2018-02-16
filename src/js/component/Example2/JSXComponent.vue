@@ -7,11 +7,11 @@ export default {
   },
   render() {
     return (
-      <div>
+      <section>
         <button
           class="btn btn-primary"
           onClick={this.clickHandler}>Click</button>
-      </div>
+      </section>
     );
   },
 };

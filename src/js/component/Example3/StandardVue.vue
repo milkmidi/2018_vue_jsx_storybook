@@ -8,11 +8,11 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <section>
     <button class="btn btn-primary" 
       @click="show=!show">
       Toggle</button>
     <div class="box lg" v-if="show">Yes</div>
     <div class="box lg" v-if="!show">No</div>
-  </div>
+  </section>
 </template>
