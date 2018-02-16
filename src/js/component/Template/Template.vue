@@ -75,7 +75,7 @@ const Template = {
 export default Template;
 </script>
 
-<style lang="stylus">  
+<style lang="stylus">
   .template
     pre
       font-size 120% !important
