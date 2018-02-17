@@ -6,6 +6,7 @@ const ChildComponent = ({ props, listeners }) => (
   </div>
 );
 /*
+以上寫法等同於以下寫法
 const ChildComponent = {
   functional: true,
   render(h, { props, listeners }) {

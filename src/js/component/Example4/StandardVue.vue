@@ -19,12 +19,12 @@ export default {
   <section>
     <ChildComponent name="milkmidi"/>
     <!-- 
-      預設不支援一個 .vue 檔包多組
+      預設不支援一個 .vue 檔包多組 Template
       但作者說只要在 webpack 加入就可以
-    resolve: {
-      alias: {
-        vue: 'vue/dist/vue.js'
-      }
-    }  -->
+      resolve: {
+        alias: {
+          vue: 'vue/dist/vue.js'
+        }
+      }  -->
   </section>
 </template>

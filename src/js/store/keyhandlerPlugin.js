@@ -9,9 +9,9 @@ export default (store) => {
     }
   });
   window.addEventListener('keydown', ({ keyCode }) => {
-    if (keyCode === 37 || keyCode === 38) {
+    if (keyCode === 37) {
       store.commit('updateIndex', -1);
-    } else if (keyCode === 39 || keyCode === 40) {
+    } else if (keyCode === 39) {
       store.commit('updateIndex', 1);
     }
   });

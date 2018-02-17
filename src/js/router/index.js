@@ -19,6 +19,18 @@ const ReactReduxInfo = () =>
   <TemplateTitle
     title='Redux 的定義'
     sub='Component: Read Data from props,Container: Subscribe to Redux state,https://redux.js.org/docs/basics/UsageWithReact.html' />;
+const Plop = () =>
+  <TemplateTitle
+    title='學習不需要為公司,不需要為長官、同事,不需要為別人,只為你自己。'
+    sub='五倍紅寶石 - 高見龍' />;
+const LearnForYourself = () =>
+  <TemplateTitle
+    title='樣版產生器 - plop'
+    sub='https://www.npmjs.com/package/plop' />;
+const GithubUrl = () =>
+  <TemplateTitle
+    title='Github repository'
+    sub='https://github.com/milkmidi/2018_vue_jsx_storybook' />;
 
 const EXAMPLE_COUNT = 11;
 
@@ -34,6 +46,9 @@ export const routes = [
   { path: '/why-storybook2', component: WhyStorybook2 },
   { path: '/redux', component: ReactReduxInfo },
   { path: '/demo-button', component: require('@/container/DemoButtonContainer').default },
+  { path: '/Plop', component: Plop },
+  { path: '/LearnForYourself', component: LearnForYourself },
+  { path: '/GithubUrl', component: GithubUrl },
 ];
 
 
