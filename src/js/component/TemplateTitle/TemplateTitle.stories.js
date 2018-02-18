@@ -13,7 +13,7 @@ storiesOf('TemplateTitle', module)
   }))
   .add('multi line', () => ({
     render() {
-      return <TemplateH1 title="我是Title" sub={['我是SubTitle', '我是SubTitle1', '我是SubTitle2']} />;
+      return <TemplateH1 title="我是Title" sub={'我是SubTitle,我是SubTitle1,我是SubTitle2'} />;
     },
   }))
   .add('http', () => ({

@@ -12,6 +12,10 @@
     "storybook-build": "build-storybook -c ./internal/storybook -o dist/storybook",
     "test": "jest --json --outputFile=.jest-test-results.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milkmidi/2018_vue_jsx_storybook.git"
+  },
   "jest": {
     "moduleFileExtensions": [
       "js",

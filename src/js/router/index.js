@@ -19,11 +19,11 @@ const ReactReduxInfo = () =>
   <TemplateTitle
     title='Redux 的定義'
     sub='Component: Read Data from props,Container: Subscribe to Redux state,https://redux.js.org/docs/basics/UsageWithReact.html' />;
-const Plop = () =>
+const LearnForYourself = () =>
   <TemplateTitle
     title='學習不需要為公司,不需要為長官、同事,不需要為別人,只為你自己。'
     sub='五倍紅寶石 - 高見龍' />;
-const LearnForYourself = () =>
+const Plop = () =>
   <TemplateTitle
     title='樣版產生器 - plop'
     sub='https://www.npmjs.com/package/plop' />;
@@ -45,7 +45,7 @@ export const routes = [
   { path: '/why-storybook', component: WhyStorybook },
   { path: '/why-storybook2', component: WhyStorybook2 },
   { path: '/redux', component: ReactReduxInfo },
-  { path: '/demo-button', component: require('@/container/DemoButtonContainer').default },
+  { path: '/UserProfileExample', component: require('@/component/UserProfileExample').default },
   { path: '/Plop', component: Plop },
   { path: '/LearnForYourself', component: LearnForYourself },
   { path: '/GithubUrl', component: GithubUrl },

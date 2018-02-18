@@ -18,6 +18,19 @@ const mutations = {
 };
 
 const actions = {
+  fakeAPIGetUserProfile() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          name: '奶綠伯',
+          img: 'http://fakeimg.pl/350x200/?text=Hello',
+          description: '我是description',
+          followers: 1,
+          following: 1,
+        });
+      }, 2300);
+    });
+  },
 };
 
 const getters = {

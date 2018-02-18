@@ -13,7 +13,7 @@ storiesOf('TemplateImage', module)
   }))
   .add('multi line', () => ({
     render() {
-      return <TemplateImage img={require('img/milkmidi.png')} sub={["I'm sub Title!", '1', '2', '3']} />;
+      return <TemplateImage img={require('img/milkmidi.png')} sub={"I'm sub Title!,1,2, 3"} />;
     },
   }));
 

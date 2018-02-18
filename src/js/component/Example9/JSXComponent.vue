@@ -13,6 +13,10 @@ export default {
         <p>{this.boolean}</p>
         <p>{this.number}</p>
         <p>{this.array}</p>
+        <p>--------------</p>
+        <p>{this.boolean.toString()}</p>
+        <p>{this.number.toString()}</p>
+        <p>{this.array.toString()}</p>
       </section>
     );
   },

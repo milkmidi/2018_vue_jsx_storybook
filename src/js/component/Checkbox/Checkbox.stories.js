@@ -4,10 +4,13 @@ import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
 import Centered from '@storybook/addon-centered';
 import Styled from 'vue-styled-components';
-import { withReadme } from 'storybook-readme';
+import { withReadme, withDocs } from 'storybook-readme';
+import { remove } from 'lodash';
 
 import CheckBox from './';
 import README from './README.md';
+import READMEJSX from './README.jsx.md';
+import README_ERROR_JSX from './README.error.jsx.md';
 
 const CheckBoxRoot = Styled.div`
   font-size: 120%;
@@ -62,7 +65,7 @@ storiesOf('CheckBox', module)
       </CheckBoxRoot>
     `,
   })))
-  .add('jsx', () => ({
+  .add('error jsx ', withDocs(README_ERROR_JSX, () => ({
     data() {
       return {
         nativeCB: [],
@@ -71,7 +74,7 @@ storiesOf('CheckBox', module)
     },
     watch: {
       nativeCB(val) {
-        action('nativeCB')(val.toString(), Array.isArray(val));
+        action('nativeCB')(val.toString(), `isArray:${Array.isArray(val)}`);
       },
       type(val) {
         action('Checkbox')(val.toString());
@@ -89,7 +92,7 @@ storiesOf('CheckBox', module)
               <input type="checkbox" v-model={this.nativeCB} value="native1"/>
               Native Checkbox1
             </label>
-            <p>{this.nativeCB.toString()}</p>
+            <p>{ JSON.stringify(this.nativeCB)}</p>
           </SectionComponent>
 
           <SectionComponent>
@@ -100,4 +103,41 @@ storiesOf('CheckBox', module)
         </CheckBoxRoot>
       );
     },
-  }));
+  })))
+  .add('jsx ', withDocs(READMEJSX, () => ({
+    data() {
+      return {
+        type: [],
+      };
+    },
+    watch: {
+      type(val) {
+        action('Checkbox')(val.toString());
+      },
+    },
+    render() {
+      const vm = this;
+      const on = {
+        on: {
+          change(event) {
+            const { target } = event;
+            if (target.checked) {
+              vm.type.push(target.value);
+            } else {
+              vm.type = remove(vm.type, t => t === target.value);
+            }
+          },
+        },
+      };
+      return (
+        <CheckBoxRoot>
+          <SectionComponent>
+            <CheckBox label="我是奶綠伯0" value='我是值0' {...on} />
+            <CheckBox label="我是奶綠伯1" value='我是值1' {...on} />
+            <p>type:{JSON.stringify(this.type)}</p>
+          </SectionComponent>
+        </CheckBoxRoot>
+      );
+    },
+  })));
+
