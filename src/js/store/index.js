@@ -23,7 +23,7 @@ const actions = {
       setTimeout(() => {
         resolve({
           name: '奶綠伯',
-          img: 'http://fakeimg.pl/350x200/?text=Hello',
+          img: require('img/pipi.jpg'),
           description: '我是description',
           followers: 1,
           following: 1,

@@ -1,14 +1,69 @@
 <script>
-const PageDisplay = ({ props }) => (
-  <div class="page-display">
-    {props.currentPage} / {props.totalPages}
-  </div>
-);
-export default PageDisplay;
+
+export default {
+  props: {
+    currentPage: Number,
+    totalPages: Number,
+  },
+  data: () => ({
+    editMode: false,
+    dataPage: this.currentPage,
+  }),
+  watch: {
+    currentPage(val) {
+      this.dataPage = val;
+    },
+  },
+  mounted() {
+    this.dataPage = this.currentPage || 1;
+  },
+  methods: {
+    elementClickHandler() {
+      this.editMode = true;
+      this.$nextTick(() => {
+        this.$refs.input.focus();
+      });
+    },
+    changeHandler(e) {
+      this.dataPage = e.target.value;
+      this.$emit('update:currentPage', this.dataPage);
+    },
+    blurHandler() {
+      this.editMode = false;
+    },
+  },
+  render() {
+    return (
+      <div class="page-display">
+        {
+          this.editMode
+          ? (
+            <div class="page-display-edit">
+              <input
+                ref="input"
+                type="number"
+                onInput={this.changeHandler}
+                onBlur={this.blurHandler}
+                value={this.dataPage}/> / {this.totalPages}
+            </div>
+          )
+          : (
+            <div class="page-display-mode" onClick={this.elementClickHandler}>
+              {this.currentPage} / {this.totalPages}
+            </div>
+          )
+        }
+      </div>
+    );
+  },
+};
 </script>
 
 
 <style lang="stylus">
   .page-display
     font-size 20px
+    .page-display-edit
+      input 
+        width 60px
 </style>

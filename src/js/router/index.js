@@ -27,10 +27,13 @@ const Plop = () =>
   <TemplateTitle
     title='樣版產生器 - plop'
     sub='https://www.npmjs.com/package/plop' />;
+
 const GithubUrl = () =>
   <TemplateTitle
     title='Github repository'
     sub='https://github.com/milkmidi/2018_vue_jsx_storybook' />;
+const QA = () =>
+  <TemplateTitle title='QA' sub='' />;
 
 const EXAMPLE_COUNT = 11;
 
@@ -49,6 +52,7 @@ export const routes = [
   { path: '/Plop', component: Plop },
   { path: '/LearnForYourself', component: LearnForYourself },
   { path: '/GithubUrl', component: GithubUrl },
+  { path: '/QA', component: QA },
 ];
 
 
