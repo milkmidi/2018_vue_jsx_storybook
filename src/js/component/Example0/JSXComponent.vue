@@ -1,10 +1,8 @@
 <script>
 export default {
-  data() {
-    return {
-      name: 'JSX Style',
-    };
-  },
+  data: () => ({
+    name: 'JSX Style',
+  }),
   render() {
     return (
       <section>

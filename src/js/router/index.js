@@ -15,6 +15,7 @@ const WhyJSX2 = () => <TemplateTitle title='為何要寫 jsx ?' sub='多學一�
 const StorybookIntro = () => <TemplateTitle title='Storybook' sub='https://storybook.js.org/' />;
 const WhyStorybook = () => <TemplateTitle title='為何要寫 Storybook ?' sub='因為潮呀(誤)!' />;
 const WhyStorybook2 = () => <TemplateTitle title='什麼是測試程式測不出來的?' sub='時程,客戶預算,你的肝指數,IE不能動,視覺元件' />;
+
 const ReactReduxInfo = () =>
   <TemplateTitle
     title='Redux 的定義'
@@ -47,6 +48,7 @@ export const routes = [
   { path: '/storybook-intro', component: StorybookIntro },
   { path: '/why-storybook', component: WhyStorybook },
   { path: '/why-storybook2', component: WhyStorybook2 },
+  { path: '/RoundButtonExample', component: require('@/component/RoundButtonExample').default },
   { path: '/redux', component: ReactReduxInfo },
   { path: '/UserProfileExample', component: require('@/component/UserProfileExample').default },
   { path: '/Plop', component: Plop },

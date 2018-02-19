@@ -1,10 +1,8 @@
 <script>
 export default {
-  data() {
-    return {
-      list: [0, 1, 2, 3],
-    };
-  },
+  data: () => ({
+    list: [0, 1, 2, 3],
+  }),
 };
 </script>
 <template>

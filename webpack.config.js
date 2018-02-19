@@ -38,6 +38,7 @@ module.exports = {
       '~': path.resolve('src'),
       '@': path.resolve('src/js'),
       img: path.resolve('src/asset/img'),
+      internal: path.resolve('internal'),
       vue: 'vue/dist/vue.js',
     },
     extensions: ['.js'],
@@ -98,9 +99,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'html/index.template.pug',
-      data: {
-        DEV_MODE,
-      },
+      data: { DEV_MODE },
     }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer',
@@ -125,19 +124,15 @@ module.exports = {
         new CleanWebpackPlugin(['dist'], {
           root: __dirname,
         }),
-        ...process.env.BEAUTIFY
-          ? []
-          : [
-            new webpack.optimize.UglifyJsPlugin({
-              sourceMap: false,
-              compress: {
-                warnings: false,
-              },
-              output: {
-                comments: false,
-              },
-            }),
-          ],
+        new webpack.optimize.UglifyJsPlugin({
+          sourceMap: false,
+          compress: {
+            warnings: false,
+          },
+          output: {
+            comments: false,
+          },
+        }),
       ],
   ],
   devServer: {

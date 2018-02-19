@@ -16,11 +16,9 @@ export default {
       return this.value || this.label;
     },
   },
-  data() {
-    return {
-      dataValue: this.modelValue,
-    };
-  },
+  data: () => ({
+    dataValue: this.modelValue,
+  }),
   watch: {
     modelValue(val) {
       if (Array.isArray(this.modelValue)) {

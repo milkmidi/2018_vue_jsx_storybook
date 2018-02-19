@@ -2,30 +2,30 @@ import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
 import Centered from '@storybook/addon-centered';
 import { withReadme, withDocs } from 'storybook-readme';
-import styled from 'vue-styled-components';
+import Styled from 'vue-styled-components';
+import withTests from 'internal/storybook/withTests'; // eslint-disable-line
 
 import DemoButton from './';
 import README from './README.md';
 
 
-const DemoButtonRoot = styled.div`
+const DemoButtonRoot = Styled.div`
   padding: 30px;
   background: #d3d3d3;
 `;
 
 
-storiesOf('DemoButton', module)
+storiesOf('RoundButton', module)
   .addDecorator(Centered)
-  .add('DemoButton', withDocs(README, () => ({
-    data() {
-      return {
-        label: 'hi, vue jsx',
-        isRounded: false,
-      };
-    },
+  .addDecorator(withTests('RoundButton'))
+  .add('RoundButton', withDocs(README, () => ({
+    data: () => ({
+      label: 'hi, vue jsx',
+      isRounded: false,
+    }),
     methods: {
       clickHandler() {
-        action('DemoButton')('click');
+        action('RoundButton')('click');
       },
     },
     render() {
@@ -36,16 +36,14 @@ storiesOf('DemoButton', module)
       );
     },
   })))
-  .add('DemoButton round', withReadme(README, () => ({
-    data() {
-      return {
-        label: 'hi, vue jsx',
-        isRounded: true,
-      };
-    },
+  .add('RoundButton round', withReadme(README, () => ({
+    data: () => ({
+      label: 'hi, vue jsx',
+      isRounded: true,
+    }),
     methods: {
       clickHandler() {
-        action('DemoButton')('click');
+        action('RoundButton')('click');
       },
     },
     render() {

@@ -13,7 +13,7 @@ const defaultState = {
 
 const mutations = {
   updateIndex(state, value) {
-    state.index = Math.min(Math.max(0, state.index + value), routes.length - 1);
+    state.index = Math.min(Math.max(0, value), routes.length - 1);
   },
 };
 

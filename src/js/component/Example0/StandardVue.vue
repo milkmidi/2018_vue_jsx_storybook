@@ -1,10 +1,8 @@
 <script>
 export default {
-  data() {
-    return {
-      name: 'Standard Template',
-    };
-  },
+  data: () => ({
+    name: 'Standard Template',
+  }),
 };
 </script>
 <template>

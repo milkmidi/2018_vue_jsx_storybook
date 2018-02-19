@@ -30,12 +30,10 @@ Vue.component('SectionComponent', SectionComponent);
 storiesOf('CheckBox', module)
   .addDecorator(Centered)
   .add('basic', withReadme(README, () => ({
-    data() {
-      return {
-        nativeCB: [],
-        type: [],
-      };
-    },
+    data: () => ({
+      nativeCB: [],
+      type: [],
+    }),
     watch: {
       nativeCB(val) {
         action('nativeCB')(val.toString());
@@ -66,12 +64,10 @@ storiesOf('CheckBox', module)
     `,
   })))
   .add('error jsx ', withDocs(README_ERROR_JSX, () => ({
-    data() {
-      return {
-        nativeCB: [],
-        type: [],
-      };
-    },
+    data: () => ({
+      nativeCB: [],
+      type: [],
+    }),
     watch: {
       nativeCB(val) {
         action('nativeCB')(val.toString(), `isArray:${Array.isArray(val)}`);
@@ -105,11 +101,9 @@ storiesOf('CheckBox', module)
     },
   })))
   .add('jsx ', withDocs(READMEJSX, () => ({
-    data() {
-      return {
-        type: [],
-      };
-    },
+    data: () => ({
+      type: [],
+    }),
     watch: {
       type(val) {
         action('Checkbox')(val.toString());

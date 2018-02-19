@@ -3,15 +3,12 @@ import StandardVue from './StandardVue.vue';
 import JSXComponent from './JSXComponent.vue';
 
 export default {
-  data: () => ({
-    standard: require('!raw-loader!docs-loader!./StandardVue.vue'),
-    jsx: require('!raw-loader!docs-loader!./JSXComponent.vue'),
-  }),
+  functional: true,
   render() {
     return (
       <Template
-        standard={this.standard}
-        jsx={this.jsx}>
+        standard={require('!raw-loader!docs-loader!./StandardVue.vue')}
+        jsx={require('!raw-loader!docs-loader!./JSXComponent.vue')}>
         <h1 slot="title">03 v-if</h1>
         <StandardVue slot="standard" />
         <JSXComponent slot="jsx" />

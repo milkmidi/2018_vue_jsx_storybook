@@ -1,11 +1,8 @@
 <script>
 export default {
-
-  data() {
-    return {
-      money: 100,
-    };
-  },
+  data: () => ({
+    money: 100,
+  }),
   computed: {
     us() {
       return 100 * 30;

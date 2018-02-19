@@ -24,8 +24,11 @@ export default DemoButton;
   cursor pointer
   border 3px solid
   padding 10px 20px
+  margin-right 5px
   background-color white
   outline none
+  &:focus
+    outline 0
   &:hover
     color white
     background-color #dddddd

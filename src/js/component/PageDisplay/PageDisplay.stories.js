@@ -6,9 +6,18 @@ import PageDisplay from './';
 storiesOf('PageDisplay', module)
   .addDecorator(Centered)
   .add('Basic', () => ({
+    data: () => ({
+      currentPage: 0,
+    }),
     render() {
       return (
-        <PageDisplay currentPage={1} totalPages={10}/>
+        <div>
+          <PageDisplay
+            currentPage={this.currentPage} totalPages={10}
+            onInput={ v => this.currentPage = v}
+            />
+          <p>currentPage:{this.currentPage}</p>
+        </div>
       );
     },
   }));

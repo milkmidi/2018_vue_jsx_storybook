@@ -7,15 +7,15 @@ export default {
   },
   data: () => ({
     editMode: false,
-    dataPage: this.currentPage,
+    dataPage: 0,
   }),
   watch: {
     currentPage(val) {
-      this.dataPage = val;
+      this.dataPage = val + 1;
     },
   },
   mounted() {
-    this.dataPage = this.currentPage || 1;
+    this.dataPage = (this.currentPage || 0) + 1;
   },
   methods: {
     elementClickHandler() {
@@ -25,8 +25,8 @@ export default {
       });
     },
     changeHandler(e) {
-      this.dataPage = e.target.value;
-      this.$emit('update:currentPage', this.dataPage);
+      this.dataPage = Math.min(Math.max(1, e.target.value), this.totalPages);
+      this.$emit('input', this.dataPage - 1);
     },
     blurHandler() {
       this.editMode = false;
@@ -49,7 +49,7 @@ export default {
           )
           : (
             <div class="page-display-mode" onClick={this.elementClickHandler}>
-              {this.currentPage} / {this.totalPages}
+              {this.currentPage + 1} / {this.totalPages}
             </div>
           )
         }

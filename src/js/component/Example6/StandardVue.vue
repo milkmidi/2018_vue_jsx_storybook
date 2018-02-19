@@ -9,14 +9,12 @@
 import ChildComponent from './ChildComponent.vue';
 
 export default {
-  data() {
-    return {
-      list: [
-        { name: 'milkmidi', age: 18 },
-        { name: '奶綠茶', age: 17 },
-      ],
-    };
-  },
+  data: () => ({
+    list: [
+      { name: 'milkmidi', age: 18 },
+      { name: '奶綠茶', age: 17 },
+    ],
+  }),
   components: {
     ChildComponent,
   },

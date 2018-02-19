@@ -1,20 +1,14 @@
 import Template from '@/component/Template';
-
-
 import UserProfile from '@/component/UserProfile';
 import UserProfileContainer from '@/container/UserProfileContainer';
 
-
 export default {
-  data: () => ({
-    standard: require('!raw-loader!docs-loader!../UserProfile/UserProfile.vue'),
-    jsx: require('!raw-loader!docs-loader!../../container/UserProfileContainer/UserProfileContainer.vue'),
-  }),
+  functional: true,
   render() {
     return (
       <Template
-        standard={this.standard}
-        jsx={this.jsx}>
+        standard={require('!raw-loader!docs-loader!@/component/UserProfile/UserProfile.vue')}
+        jsx={require('!raw-loader!docs-loader!@/container/UserProfileContainer/UserProfileContainer.vue')}>
         <div slot="title">
           <h1>Component / Container</h1>
           <a class="btn btn-link"

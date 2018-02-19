@@ -1,11 +1,9 @@
 <script>
 export default {
-  data() {
-    return {
-      input: 'milkmidi',
-      checkedNames: [],
-    };
-  },
+  data: () => ({
+    input: 'milkmidi',
+    checkedNames: [],
+  }),
 };
 </script>
 <template>

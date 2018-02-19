@@ -1,8 +1,8 @@
 <script>
 
 const IconBTN = ({ props, listeners }) => {
-  const { mode, value, iconName = 'fa-angle-double-up' } = props;
-  if (mode === value) {
+  const { mode, value, iconName = 'fa-angle-double-up', singleMode } = props;
+  if (mode === value || singleMode) {
     return null;
   }
   return (
@@ -11,20 +11,32 @@ const IconBTN = ({ props, listeners }) => {
   );
 };
 
-const Template = {
+export default {
   props: ['standard', 'jsx'],
-  data() {
-    return {
-      mode: 0,
-    };
-  },
+  data: () => ({
+    mode: 0,
+    singleMode: false,
+  }),
   methods: {
     setMode(m) {
       this.mode = m;
     },
   },
+  mounted() {
+    this.singleMode = !this.jsx || !this.standard;
+    if (!this.jsx) {
+      this.mode = 1;
+    }
+  },
   render() {
-    const { $slots, mode } = this;
+    const {
+      $slots,
+      mode,
+      singleMode,
+      setMode,
+      standard,
+      jsx,
+    } = this;
     let leftClass = 'col-6';
     let rightClass = 'col-6';
     if (mode === 1) {
@@ -44,16 +56,17 @@ const Template = {
             iconName="fa-close"
             value={0}
             mode={mode}
-            onSetMode={this.setMode} />
+            singleMode={singleMode}
+            onSetMode={setMode} />
           <div class={`${leftClass} animate`}>
             <div class="standard-vue">
               <IconBTN
                 value={1}
                 mode={mode}
-                onSetMode={this.setMode} />
+                onSetMode={setMode} />
               {$slots.standard}
               <div class="markdown"
-                domPropsInnerHTML={this.standard} />
+                domPropsInnerHTML={standard} />
             </div>
           </div>
           <div class={`${rightClass} animate`}>
@@ -61,10 +74,10 @@ const Template = {
               <IconBTN
                 value={2}
                 mode={mode}
-                onSetMode={this.setMode} />
+                onSetMode={setMode} />
               {$slots.jsx}
               <div class="markdown"
-                domPropsInnerHTML={this.jsx} />
+                domPropsInnerHTML={jsx} />
             </div>
           </div>
         </div>
@@ -72,7 +85,7 @@ const Template = {
     );
   },
 };
-export default Template;
+
 </script>
 
 <style lang="stylus">

@@ -10,9 +10,9 @@ export default (store) => {
   });
   window.addEventListener('keydown', ({ keyCode }) => {
     if (keyCode === 37) {
-      store.commit('updateIndex', -1);
+      store.commit('updateIndex', store.state.index - 1);
     } else if (keyCode === 39) {
-      store.commit('updateIndex', 1);
+      store.commit('updateIndex', store.state.index + 1);
     }
   });
 };

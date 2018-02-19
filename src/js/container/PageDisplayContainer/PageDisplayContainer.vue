@@ -3,10 +3,15 @@ import PageDisplay from '@/component/PageDisplay';
 
 export default {
   render() {
-    const { index, totalPages } = this.$store.getters;
+    const { getters, commit } = this.$store;
+    const { index, totalPages } = getters;
     return (
       <div class="page-display-container">
-        <PageDisplay currentPage={index + 1} totalPages={totalPages}/>
+        <PageDisplay
+          currentPage={index}
+          totalPages={totalPages}
+          onInput={v => commit('updateIndex', v)}
+          />
       </div>
     );
   },

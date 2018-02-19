@@ -1,12 +1,10 @@
 <script>
 
 export default {
-  data() {
-    return {
-      input: 'milkmidi',
-      checkedNames: [], // 這有雷，快來踩
-    };
-  },
+  data: () => ({
+    input: 'milkmidi',
+    checkedNames: [], // 這有雷，快來踩
+  }),
   render() {
     return (
       <section>

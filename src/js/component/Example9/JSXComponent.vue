@@ -1,12 +1,10 @@
 <script>
 export default {
-  data() {
-    return {
-      boolean: true,
-      number: 1,
-      array: [0, 1, 2, '3', '4', '5'],
-    };
-  },
+  data: () => ({
+    boolean: true,
+    number: 1,
+    array: [0, 1, 2, '3', '4', '5'],
+  }),
   render() {
     return (
       <section>

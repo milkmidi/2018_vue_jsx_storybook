@@ -1,7 +1,6 @@
 import Template from '@/component/Template';
 import StandardVue from './StandardVue.vue';
 import JSXComponent from './JSXComponent.vue';
-// standard={require('!raw-loader!docs-loader?lang=html!./StandardVue.vue')}
 
 const Example1 = () => (
   <Template

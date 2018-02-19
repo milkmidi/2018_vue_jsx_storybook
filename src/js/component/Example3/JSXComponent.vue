@@ -1,10 +1,8 @@
 <script>
 export default {
-  data() {
-    return {
-      show: true,
-    };
-  },
+  data: () => ({
+    show: true,
+  }),
   render() {
     return (
       <section>
