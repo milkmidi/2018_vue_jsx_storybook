@@ -1,1 +1,1 @@
-export default from './DemoButtonContainer.vue';
+export { default } from './DemoButtonContainer.vue';

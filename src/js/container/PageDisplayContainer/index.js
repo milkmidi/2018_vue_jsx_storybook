@@ -1,1 +1,1 @@
-export default from './PageDisplayContainer.vue';
+export { default } from './PageDisplayContainer.vue';

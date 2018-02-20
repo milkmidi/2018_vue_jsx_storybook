@@ -11,6 +11,7 @@ export default {
         jsx={require('!raw-loader!docs-loader!./JSXComponent.vue')}>
         <div slot="title">
           <h1>08 v-model</h1>
+          <div>預設不支援 v-model, 好在vue作者有寫babel plugin</div>
           <a
             class="btn btn-link"
             href="https://github.com/nickmessing/babel-plugin-jsx-v-model"

@@ -27,9 +27,6 @@ export default {
         this.dataValue = val ? this.value : '';
       }
     },
-    /* dataValue(val) {
-      this.$emit('input', val);
-    }, */
   },
   methods: {
     changeHandler(e) {
@@ -39,7 +36,6 @@ export default {
   },
 };
 </script>
-
 
 <template lang="pug">
 .check-box

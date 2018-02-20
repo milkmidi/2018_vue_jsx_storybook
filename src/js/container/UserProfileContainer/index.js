@@ -1,1 +1,1 @@
-export default from './UserProfileContainer.vue';
+export { default } from './UserProfileContainer.vue';

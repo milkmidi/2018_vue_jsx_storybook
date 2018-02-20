@@ -19,9 +19,9 @@ export default {
     return (
     <section>
       <div class="container d-flex flex-column align-items-center justify-content-center w-100 h-100">
-        { title.split(',').map(s => <div class="main-title" key={s}>{s}</div>) }
+        { title.split(',').map(s => <div class="main-title" key={s}>{s.trim()}</div>) }
         <br />
-        { sub.split(',').map(s => <Link key={s} text={s} />) }
+        { sub.split(',').map(s => <Link key={s} text={s.trim()} />) }
       </div>
     </section>
     );

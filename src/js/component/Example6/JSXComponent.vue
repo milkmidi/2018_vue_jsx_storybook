@@ -29,8 +29,11 @@ export default {
           this.list.map(o =>
             <ChildComponent
               key={o.name}
-              {...{ props: o }}
-              />)
+              {...{ props: o }} />)
+            // React 版
+            // <ChildComponent
+            //  key={o.name}
+            //  {...o} />)
         }
       </section>
     );
