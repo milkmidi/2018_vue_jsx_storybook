@@ -1,0 +1,65 @@
+@keyframes keyframesRotate
+  0%
+    transform rotate(0deg)
+  100%
+    transform rotate(360deg)
+.user-profile
+  position relative
+  &.loading
+    &:before
+      animation keyframesRotate 1s linear infinite
+      content ''
+      position absolute
+      top 0
+      right 0
+      bottom 0
+      left 0
+      margin auto
+      width 30px
+      height @width
+      border 3px solid
+      border-color black
+      border-left-color transparent
+      border-radius 50%
+      z-index 1
+    &:after
+      content ''
+      width 100%
+      height 100%
+      position absolute
+      left 0
+      top 0
+      background-color rgba(255, 255, 255, 0.9)
+  .user-img
+    border-radius 6px 6px 0 0
+    background-position center
+    background-size cover
+    padding-top 60%
+  .description
+    font-size 18px
+    padding-bottom 10px
+  .card-footer
+    padding 0
+    display flex
+    position relative
+    &:before
+      position absolute
+      top 0
+      content ''
+      width 100%
+      height 1px
+      background-color #e3e3e3
+    .followers
+    .following
+      width 50%
+      flex 1 1 @width
+      padding 30px 0
+      font-size 24px
+      &:before
+        font-size 16px
+        display block
+
+    .followers:before
+      content 'FOLLOWERS'
+    .following:before
+      content 'FOLLOWING'

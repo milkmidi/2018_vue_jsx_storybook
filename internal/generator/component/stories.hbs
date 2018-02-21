@@ -1,0 +1,27 @@
+import Vue from 'vue';
+
+import { storiesOf } from '@storybook/vue';
+import { action } from '@storybook/addon-actions';
+import Centered from '@storybook/addon-centered';
+
+import {{ properCase name }} from './';
+
+
+Vue.component('{{ properCase name }}', {{ properCase name }});
+
+storiesOf('{{ properCase name }}', module)
+  //.addDecorator(Centered)
+  .add('{{ properCase name }}', () => ({
+    methods: {
+      log() {
+        action('{{ properCase name }}')();
+      },
+    },
+    render() {
+      return (
+        <div>
+          <{{ properCase name }} />
+        </div>
+      );
+    }
+  }));

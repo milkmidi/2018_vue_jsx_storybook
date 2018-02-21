@@ -1,0 +1,34 @@
+<script>
+import Vuex from 'vuex';
+
+export default {
+  name: '{{ name }}',
+  props: {},
+  data: () => ({
+  }),
+  computed: {
+    // ...Vuex.mapState([]),
+    // ...Vuex.mapGetters([]),
+  },
+  methods: {
+    // ...Vuex.mapMutations([]),
+    // ...Vuex.mapActions([]),
+  },
+  mounted() {
+  },
+  beforeDestroy() {
+  },
+  components: {
+  },
+};
+</script>
+
+<template lang="pug">
+.{{ dashCase name }}
+  h1 {{ dashCase name }}
+</template>
+
+<style lang="stylus">
+  .{{ dashCase name }}
+    // display: none
+</style>

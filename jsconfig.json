@@ -1,0 +1,11 @@
+{
+  "include": [ "src/**/*" ],
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["src/*"],
+      "@/*": ["src/js/*"]
+    }
+  }
+}

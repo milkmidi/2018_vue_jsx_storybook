@@ -1,0 +1,22 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "loose": true,
+      "targets": {
+        "browsers": [
+          "> 5%",
+          "last 2 versions", 
+          "not ie <= 10"
+        ]
+      }
+    }],
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-pug-html",
+    "jsx-v-model",
+    "jsx-vue-functional",
+    "transform-vue-jsx"
+  ]
+}
