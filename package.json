@@ -97,6 +97,5 @@
     "webpack-dev-server": "^2.11.0",
     "webpack-merge": "^4.1.1"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

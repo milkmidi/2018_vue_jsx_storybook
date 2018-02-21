@@ -40,6 +40,10 @@ const LearnForYourself = () =>
   <TemplateTitle
     title='學習不需要為公司,不需要為長官、同事,不需要為別人,只為你自己。'
     sub='五倍紅寶石 - 高見龍' />;
+const Plop0 = () =>
+    <TemplateTitle
+      title='每次新增一個組件, 要寫 Storybook!, 要寫 Test!'
+      sub='.vue 排版, script在上?,template在中?,style在下?' />;
 const Plop = () =>
   <TemplateTitle
     title='樣版產生器 - plop'
@@ -57,13 +61,13 @@ const req = require.context('../component/', true, /index.js$/);
 export const routes = [
   { path: '/', component: Main },
   { path: '/why-jsx', component: WhyJSX },
+  { path: '/WhyJSX', component: require('@/component/WhyJSX').default },
   { path: '/VueJSX', component: VueJSX },
   { path: '/React', component: React },
   { path: '/CopyingMe', component: CopyingMe },
   { path: '/CodingTime', component: CodingTime },
   { path: '/Akbfans', component: Akbfans },
   ...range(EXAMPLE_COUNT).map(i => ({ path: `/example${i}`, component: req(`./Example${i}/index.js`).default })),
-  { path: '/exchange-rate', component: require('@/component/ExchangeRate').default },
   { path: '/why-jsx2', component: WhyJSX2 },
   { path: '/storybook-intro', component: StorybookIntro },
   { path: '/why-storybook', component: WhyStorybook },
@@ -71,8 +75,10 @@ export const routes = [
   { path: '/RoundButtonExample', component: require('@/component/RoundButtonExample').default },
   { path: '/redux', component: ReactReduxInfo },
   { path: '/UserProfileExample', component: require('@/component/UserProfileExample').default },
+  { path: '/Plop0', component: Plop0 },
   { path: '/Plop', component: Plop },
   { path: '/LearnForYourself', component: LearnForYourself },
+  { path: '/DependenceList', component: require('@/component/DependenceList').default },
   { path: '/GithubUrl', component: GithubUrl },
   { path: '/QA', component: QA },
 ];
@@ -80,7 +86,16 @@ export const routes = [
 
 export const findMathPathIndex = path => findIndex(routes, p => p.path === path);
 
-routes.splice(findMathPathIndex('/example8') + 1, 0, { path: '/eye', component: EyeOMyGod });
+const insertToRoutes = (findPath, route) => {
+  routes.splice(findMathPathIndex(findPath) + 1, 0, route);
+};
+
+insertToRoutes('/example7', {
+  path: '/exchange-rate',
+  component: require('@/component/ExchangeRate').default });
+insertToRoutes('/example8', {
+  path: '/eye',
+  component: EyeOMyGod });
 
 
 const router = new VueRouter({

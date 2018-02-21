@@ -1,4 +1,5 @@
 <script>
+import { toggleFullScreen } from '../../util';
 
 export default {
   props: {
@@ -49,7 +50,7 @@ export default {
           )
           : (
             <div class="page-display-mode" onClick={this.elementClickHandler}>
-              {this.currentPage + 1} / {this.totalPages}
+              {this.currentPage + 1} / <span onClick={() => toggleFullScreen()}>{this.totalPages}</span>
             </div>
           )
         }

@@ -14,7 +14,7 @@ export default {
     title: String,
     sub: String,
   },
-  render(h, { props }) {
+  render(h, { props, slots }) {
     const { title = '', sub = '' } = props;
     return (
     <section>
@@ -22,6 +22,7 @@ export default {
         { title.split(',').map(s => <div class="main-title" key={s}>{s.trim()}</div>) }
         <br />
         { sub.split(',').map(s => <Link key={s} text={s.trim()} />) }
+        { slots().default }
       </div>
     </section>
     );

@@ -6,5 +6,4 @@ module.exports = function (source) {
   const lang = 'html';
   const { value } = highlight.highlight(lang, source);
   return `<pre><code class="lang-${lang} hljs">${value}</code></pre>`;
-  // return `<pre><code class="lang-${lang} hljs">${value}</code></pre>`;
 };
