@@ -25,6 +25,6 @@ export default {
     <ChildComponent 
       v-for="o in list"
       :key="o.name"
-      :data="o"/>
+      v-bind="o" />
   </section>
 </template>
