@@ -6,6 +6,7 @@ export default {
   render() {
     return (
       <Template
+        attrVue="三種寫法，一次滿足"
         standard={require('!raw-loader!docs-loader!./WhyJSX.vue')} >
         <div slot="title">
           <h1>Why JSX</h1>

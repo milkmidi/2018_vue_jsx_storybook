@@ -16,34 +16,36 @@ export default {
       return this.value || this.label;
     },
   },
-  data: () => ({
-    dataValue: this.modelValue,
-  }),
+  data() {
+    return {
+      inputValue: this.modelValue,
+    };
+  },
   watch: {
     modelValue(val) {
       if (Array.isArray(this.modelValue)) {
-        this.dataValue = val;
+        this.inputValue = val;
       } else {
-        this.dataValue = val ? this.value : '';
+        this.inputValue = val ? this.value : '';
       }
+    },
+    inputValue(val) {
+      this.$emit('input', val);
     },
   },
   methods: {
     changeHandler(e) {
       this.$emit('change', e);
-      this.$emit('input', this.dataValue);
     },
   },
 };
 </script>
 
+
 <template lang="pug">
 .check-box
   label
-    input(type="checkbox" 
-      :value="innerValue" 
-      v-model="dataValue"
-      @change="changeHandler")
+    input(type="checkbox" :value="innerValue" v-model="inputValue" @change="changeHandler")
     span 
     | {{label}}
 </template>
@@ -93,4 +95,6 @@ export default {
           right 0
           bottom 0
           margin auto
+
+
 </style>

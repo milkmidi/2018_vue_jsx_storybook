@@ -4,7 +4,6 @@ import findIndex from 'lodash/findIndex';
 import range from 'lodash/range';
 
 import TemplateTitle from '@/component/TemplateTitle';
-import TemplateImage from '@/component/TemplateImage';
 
 Vue.use(VueRouter);
 
@@ -17,13 +16,13 @@ const VueJSX = () =>
 const React = () =>
   <TemplateTitle title='那寫 React 就好了呀!' sub='React 也不錯啦, 但今天是 vue 的場子' />;
 const CopyingMe = () =>
-  <TemplateImage img={require('img/copying-me.jpg')} sub='比賽不就是這樣,還不就他做什麼你做什麼' />;
+  <TemplateTitle img={require('img/copying-me.jpg')} sub='比賽不就是這樣,還不就他做什麼你做什麼' />;
 const CodingTime = () =>
   <TemplateTitle title='工程師 Happy Time' sub='今天不會有ppt,整場給你滿滿的程式碼' />;
 const Akbfans = () =>
-  <TemplateImage img={require('img/akbfans.jpg')} sub='' />;
+  <TemplateTitle img={require('img/akbfans.jpg')} sub='' />;
 const EyeOMyGod = () =>
-  <TemplateImage img={require('img/eye.jpg')} sub="假的!" />;
+  <TemplateTitle img={require('img/eye.jpg')} sub="假的!" />;
 const WhyJSX2 = () =>
   <TemplateTitle title='為何要寫 jsx ?' sub='多學一個函式, 少寫一行程式, 就可以加薪(誤), 就可以早點下班' />;
 const StorybookIntro = () =>
@@ -42,12 +41,14 @@ const LearnForYourself = () =>
     sub='五倍紅寶石 - 高見龍' />;
 const Plop0 = () =>
     <TemplateTitle
-      title='每次新增一個組件, 要寫 Storybook!, 要寫 Test!'
-      sub='.vue 排版, script在上?,template在中?,style在下?' />;
+      img={require('img/1250535.jpg')}
+      sub='每次新增一個組件 要寫 Storybook! 要寫 Test!,.vue 排版,script在上? template在中? style在下?' />;
 const Plop = () =>
   <TemplateTitle
+  img={require('img/plop.jpg')}
     title='樣版產生器 - plop'
     sub='https://www.npmjs.com/package/plop' />;
+const DemoTime = () => <TemplateTitle img={require('img/82734_9.jpg')} title='Demo Time'/>;
 const GithubUrl = () =>
   <TemplateTitle
     title='Github repository'
@@ -77,10 +78,11 @@ export const routes = [
   { path: '/UserProfileExample', component: require('@/component/UserProfileExample').default },
   { path: '/Plop0', component: Plop0 },
   { path: '/Plop', component: Plop },
-  { path: '/LearnForYourself', component: LearnForYourself },
+  { path: '/DemoTime', component: DemoTime },
   { path: '/DependenceList', component: require('@/component/DependenceList').default },
   { path: '/GithubUrl', component: GithubUrl },
   { path: '/QA', component: QA },
+  { path: '/LearnForYourself', component: LearnForYourself },
 ];
 
 

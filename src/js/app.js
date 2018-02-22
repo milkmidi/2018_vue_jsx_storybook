@@ -5,9 +5,9 @@ import router from './router';
 import App from './container/App';
 import store from './store';
 
+require('img/snapshot.png');
 
-// eslint-disable-next-line
-new Vue({
+export default new Vue({
   el: '#app',
   router,
   store,

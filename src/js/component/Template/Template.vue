@@ -12,7 +12,18 @@ const IconBTN = ({ props, listeners }) => {
 };
 
 export default {
-  props: ['standard', 'jsx'],
+  props: {
+    standard: String,
+    jsx: String,
+    attrVue: {
+      type: String,
+      default: 'vue',
+    },
+    attrJSX: {
+      type: String,
+      default: 'jsx',
+    },
+  },
   data: () => ({
     mode: 0,
     singleMode: false,
@@ -59,7 +70,7 @@ export default {
             singleMode={singleMode}
             onSetMode={setMode} />
           <div class={`${leftClass} animate`}>
-            <div class="standard-vue">
+            <div class="standard-vue" data-text={this.attrVue}>
               <IconBTN
                 value={1}
                 mode={mode}
@@ -70,7 +81,7 @@ export default {
             </div>
           </div>
           <div class={`${rightClass} animate`}>
-            <div class="jsx-component">
+            <div class="jsx-component" data-text={this.attrJSX}>
               <IconBTN
                 value={2}
                 mode={mode}
@@ -125,12 +136,11 @@ export default {
         font-size 24px
         padding-bottom 20px
     .standard-vue
-      &:before
-        content 'vue'
     .jsx-component
-      background-color #ecf0f1
       &:before
-        content 'jsx'
+        content attr(data-text)
+    .jsx-component
+      background-color darken(#f4f3ef, 20%)
     .none
       max-width 0
       visibility hidden

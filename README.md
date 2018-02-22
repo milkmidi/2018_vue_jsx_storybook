@@ -1,6 +1,12 @@
-# 2018_vue_jsx_storybook
-2018 2月，vue tw 讀書會
+# 2018 2月，vue 分享會
 
+![snapshot png](src/asset/img/snapshot.png)
+
+## online demo
+> https://milkmidi.github.io/2018_vue_jsx_storybook/
+
+## stoybook
+> https://milkmidi.github.io/2018_vue_jsx_storybook/storybook/
 
 ## install
 ```bash
@@ -31,10 +37,3 @@ npm run build
 # public storybook
 npm run storybook-build
 ```
-
-## online demo
-> https://milkmidi.github.io/2018_vue_jsx_storybook/
-
-
-## stoybook
-> https://milkmidi.github.io/2018_vue_jsx_storybook/storybook/
