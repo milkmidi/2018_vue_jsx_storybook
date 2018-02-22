@@ -7,6 +7,8 @@ export default {
   render() {
     return (
       <Template
+        attrVue="Component"
+        attrJSX="Container"
         standard={require('!raw-loader!docs-loader!@/component/UserProfile/UserProfile.vue')}
         jsx={require('!raw-loader!docs-loader!@/container/UserProfileContainer/UserProfileContainer.vue')}>
         <div slot="title">

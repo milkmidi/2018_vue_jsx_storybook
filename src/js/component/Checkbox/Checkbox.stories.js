@@ -115,10 +115,11 @@ storiesOf('CheckBox', module)
         on: {
           change(event) {
             const { target } = event;
-            if (target.checked) {
-              vm.type.push(target.value);
+            const { checked, value } = target;
+            if (checked) {
+              vm.type.push(value);
             } else {
-              vm.type = remove(vm.type, t => t === target.value);
+              vm.type = remove(vm.type, t => t === value);
             }
           },
         },

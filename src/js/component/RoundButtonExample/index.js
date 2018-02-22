@@ -6,6 +6,7 @@ export default {
   render() {
     return (
       <Template
+        attrVue=""
         standard={require('!raw-loader!docs-loader!./RoundButtonExample.vue')} >
         <div slot="title">
           <h1>RoundButton</h1>
