@@ -26,7 +26,7 @@ const EyeOMyGod = () =>
 const WhyJSX2 = () =>
   <TemplateTitle title='為何要寫 jsx ?' sub='多學一個函式, 少寫一行程式, 就可以加薪(誤), 就可以早點下班' />;
 const StorybookIntro = () =>
-  <TemplateTitle title='Storybook' sub='https://storybook.js.org/' />;
+  <TemplateTitle title='Storybook' sub='https://storybook.js.org/,https://milkmidi.github.io/2018_vue_jsx_storybook/storybook/' />;
 const WhyStorybook = () =>
   <TemplateTitle title='為何要寫 Storybook ?' sub='因為潮呀(誤)!' />;
 const WhyStorybook2 = () =>
@@ -92,9 +92,6 @@ const insertToRoutes = (findPath, route) => {
   routes.splice(findMathPathIndex(findPath) + 1, 0, route);
 };
 
-insertToRoutes('/example7', {
-  path: '/exchange-rate',
-  component: require('@/component/ExchangeRate').default });
 insertToRoutes('/example8', {
   path: '/eye',
   component: EyeOMyGod });
