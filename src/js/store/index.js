@@ -13,7 +13,7 @@ const defaultState = {
 
 const mutations = {
   updateIndex(state, value) {
-    state.index = Math.min(Math.max(0, value), routes.length - 1);
+    state.index = Math.min(Math.max(0, value), state.totalPages - 1);
   },
 };
 
@@ -36,6 +36,8 @@ const actions = {
 const getters = {
   index: ({ index }) => index,
   totalPages: ({ totalPages }) => totalPages,
+  isLastPage: ({ index, totalPages }) => index === totalPages - 1,
+  isFirstPage: ({ index }) => index === 0,
 };
 export default new Vuex.Store({
   strict: true,
