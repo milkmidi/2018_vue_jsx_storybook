@@ -10,6 +10,7 @@
     "plop": "plop --plopfile ./internal/generator/index.js",
     "storybook": "start-storybook -p 9001 -c ./internal/storybook",
     "storybook-build": "build-storybook -c ./internal/storybook -o dist/storybook",
+    "deploy": "npm run test && npm run build && npm run storybook-build",
     "test": "jest --json --outputFile=.jest-test-results.json"
   },
   "repository": {
