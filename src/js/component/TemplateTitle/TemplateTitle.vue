@@ -6,16 +6,9 @@ const Link = ({ props }) => (
     : <span class="sub-title">{props.text}</span>
 );
 
-export default {
-  functional: true,
-  props: {
-    title: String,
-    sub: String,
-    img: String,
-  },
-  render(h, { props, slots }) {
-    const { title, sub, img } = props;
-    return (
+const TemplateTitle = ({ props, slots }) => {
+  const { title, sub, img } = props;
+  return (
     <section class="template">
       <div class="container d-flex flex-column align-items-center justify-content-center w-100 h-100">
         {
@@ -36,9 +29,9 @@ export default {
         { slots().default }
       </div>
     </section>
-    );
-  },
+  );
 };
+export default TemplateTitle;
 </script>
 
 <style lang="stylus">

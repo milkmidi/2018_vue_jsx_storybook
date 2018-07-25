@@ -11,12 +11,11 @@
         ]
       }
     }],
-    "stage-0"
+    "stage-0",
+    "vue"
   ],
   "plugins": [
     "transform-pug-html",
-    "jsx-v-model",
-    "jsx-vue-functional",
-    "transform-vue-jsx"
+    "jsx-vue-functional"
   ]
 }

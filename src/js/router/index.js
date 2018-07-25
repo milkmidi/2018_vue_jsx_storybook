@@ -56,7 +56,7 @@ const GithubUrl = () =>
 const QA = () =>
   <TemplateTitle title='QA' sub='' />;
 
-const EXAMPLE_COUNT = 11;
+const EXAMPLE_COUNT = 12;
 
 const req = require.context('../component/', true, /index.js$/);
 export const routes = [
