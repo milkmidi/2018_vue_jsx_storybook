@@ -2,7 +2,7 @@
 const PermissionComponent = {
   // tempalte 不能只有 slot tag, 一定要有 div 包
   template: `
-    <div class="child">
+    <div class="permission-component">
       <slot></slot>
     </div>
   `,

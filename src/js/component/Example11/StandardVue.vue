@@ -1,16 +1,7 @@
 <script>
 const SwitchTab = {
-  computed: {
-    contentCount() {
-      return this.$slots.default.length;
-    },
-  },
-  mounted() {
-    console.log(this.contentCount);
-    console.log(this.$slots.default);
-  },
   template: `
-    <div class="child">
+    <div class="switch-tab">
       <slot></slot>
     </div>
   `,
@@ -25,6 +16,8 @@ export default {
 
 <template>
   <section>
+    <p>使用 template 寫法, slot 就只能直接放</p>
+    <p>但如果想在 每個 h2 再多包一層 div 呢?</p>
     <SwitchTab>
       <h2>content1</h2>
       <h2>content2</h2>

@@ -1,38 +1,34 @@
 <script>
+const SwitchTab = {
 
-const PermissionComponent = {
-  functional: true,
-  render(h, { props, slots }) {
-    const { permissionCode } = props;
-    if (permissionCode === 0) {
-      return null;
-    }
-    return slots().default;
+  mounted() {
+  },
+  render() {
+    return (
+      <div class="switch-tab">
+        {
+          this.$slots.default.map(child => (
+            <div class="border mb-2">
+              {child}
+            </div>
+          ))
+        }
+      </div>
+
+    );
   },
 };
-
-/*
-雷，不能這樣寫，因為 babel-plugin-jsx-vue-functional
-會檢查是不是有 html tag, 有才會做轉換，沒有就當一般的 function
-const PermissionComponent = ({ props, slots }) => {
-  const { permissionCode } = props;
-  if (permissionCode === 0) {
-    return null;
-  }
-  return slots().default;
-};
-*/
 
 export default {
   render() {
     return (
-       <section>
-        <PermissionComponent permissionCode={0}>
-          <h2>PermissionCode 0</h2>
-        </PermissionComponent>
-        <PermissionComponent permissionCode={1}>
-          <h2>PermissionCode 1</h2>
-        </PermissionComponent>
+      <section>
+        <p>JSX 就可以針對 slots 元素再加工</p>
+        <SwitchTab>
+          <h2>content1</h2>
+          <h2>content2</h2>
+          <h2>content3</h2>
+        </SwitchTab>
       </section>
     );
   },
