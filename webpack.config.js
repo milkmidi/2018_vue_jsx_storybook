@@ -1,20 +1,20 @@
 const path = require('path');
+const { VueLoaderPlugin } = require('vue-loader');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const VueExtractTextURLPlugin = require('./internal/webpack-plugin/vue-extracttext-url-plugin');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const DEV_MODE = process.env.NODE_ENV === 'development';
 
-module.exports = {
+const webpackConfig = {
+  mode: process.env.NODE_ENV,
   context: path.resolve('src'),
   entry: {
     app: ['./js/app.js'],
-    vendor: ['vue', 'vue-router', 'vuex'],
   },
   devtool: DEV_MODE ? 'inline-source-map' : false,
   output: {
@@ -41,7 +41,6 @@ module.exports = {
       internal: path.resolve('internal'),
       vue: 'vue/dist/vue.js',
     },
-    extensions: ['.js'],
   },
   module: {
     rules: [
@@ -85,6 +84,13 @@ module.exports = {
         },
       },
       {
+        // this applies to <template lang="pug"> in Vue components
+        test: /\.pug$/,
+        use: ['pug-plain-loader'],
+        // include: path.resolve('src/js'),
+        exclude: path.resolve('src/html'),
+      },
+      {
         test: /\.pug$/,
         use: {
           loader: 'pug-loader',
@@ -93,10 +99,58 @@ module.exports = {
             pretty: DEV_MODE,
           },
         },
+        include: path.resolve('src/html'),
+      },
+      {
+        test: /\.styl(us)?$/,
+        use: [
+          {
+            loader: 'vue-style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              minimize: true,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              plugins: () => [
+                require('postcss-flexbugs-fixes'),
+                require('autoprefixer')({
+                  browsers: [
+                    'last 5 versions',
+                    'iOS >=10',
+                    'not ie <= 11',
+                    '>3%',
+                  ],
+                  flexbox: 'no-2009',
+                }),
+              ],
+            },
+          },
+          {
+            loader: 'stylus-loader',
+            options: {
+              paths: ['src/css/', 'src/assets/', 'src/'],
+              sourceMap: true,
+              define: {
+                DEV_MODE,
+              },
+              // preferPathResolver: 'webpack',
+              import: [path.resolve('src/css/common.styl')],
+            },
+          },
+        ],
+        exclude: /node_modules/,
       },
     ],
   },
   plugins: [
+    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: 'html/index.template.pug',
       data: { DEV_MODE },
@@ -104,35 +158,16 @@ module.exports = {
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer',
     }),
-    new ExtractTextPlugin({
-      filename: 'asset/css/app.css',
-      disable: DEV_MODE,
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest'],
-      minChunks: Infinity,
-    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
-    new VueExtractTextURLPlugin({ disable: DEV_MODE }),
     ...DEV_MODE
       ? [
-        new webpack.NamedModulesPlugin(),
         new FriendlyErrorsPlugin(),
       ]
       : [
         new CleanWebpackPlugin(['dist'], {
           root: __dirname,
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-          sourceMap: false,
-          compress: {
-            warnings: false,
-          },
-          output: {
-            comments: false,
-          },
         }),
       ],
   ],
@@ -151,4 +186,46 @@ module.exports = {
     host: '0.0.0.0',
     disableHostCheck: true,
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 100,
+      minChunks: 1,
+      automaticNameDelimiter: '-',
+      name: true,
+      cacheGroups: {
+        common: {
+          name: 'common',
+          chunks: 'initial',
+          minChunks: 2,
+          maxInitialRequests: 5,
+          minSize: 0,
+        },
+        vendors: {
+          name: 'vendor',
+          chunks: 'initial',
+          test: /[\\/]node_modules[\\/]/,
+          priority: 10,
+          enforce: true,
+        },
+      },
+    },
+  },
 };
+
+
+if (!DEV_MODE) {
+  const stylusLoader = webpackConfig.module.rules.find(({ test }) => test.test('.stylus'));
+  stylusLoader.use[0] = {
+    loader: MiniCssExtractPlugin.loader,
+    options: {
+      publicPath: '../../',
+    },
+  };
+  webpackConfig.plugins.push(new MiniCssExtractPlugin({
+    filename: 'asset/css/[name].css',
+    chunkFilename: 'asset/css/[name]-chunk.css',
+  }));
+}
+
+module.exports = webpackConfig;

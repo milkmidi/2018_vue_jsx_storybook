@@ -1,21 +1,37 @@
 {
   "presets": [
-    ["env", {
-      "modules": false,
-      "loose": true,
-      "targets": {
-        "browsers": [
-          "> 5%",
-          "last 2 versions", 
-          "not ie <= 10"
-        ]
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "loose": true,
+        "useBuiltIns": false,
+        "targets": {
+          "node": "current",
+          "browsers": [
+            "> 5%",
+            "last 2 versions",
+            "ie >= 11"
+          ]
+        }
       }
-    }],
-    "stage-0",
-    "vue"
+    ],
+    "vue",
+    "@babel/preset-flow"
   ],
   "plugins": [
-    "transform-pug-html",
-    "jsx-vue-functional"
-  ]
+    "add-module-exports",
+    "jsx-vue-functional",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-optional-chaining",
+    ["@babel/plugin-proposal-pipeline-operator",{ "proposal": "minimal" }],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-proposal-function-bind",
+    ["@babel/plugin-transform-runtime", {
+      "corejs": false,
+      "helpers": true,
+      "regenerator": true,
+      "useESModules": false
+    }]
+  ]  
 }
